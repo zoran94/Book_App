@@ -1,23 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import * as data from "./../../../services/FetchProfile";
+import fetchPosts from './../../../services/fetchPosts';
 
 
 class Feed extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: [],
+            posts: []
         }
     }
 
+    onLoadPosts() {
+        fetchPosts()
+            .then((fetchedPosts) => {
+                this.setState({ posts: fetchedPosts });
+                console.log(fetchedPosts)
+            })
+    }
 
     componentDidMount() {
-        data.fetchUser().then(user => {
-            this.setState({
-                user: user,
-            })
-        })
+        this.onLoadPosts();
     }
 
 
@@ -28,7 +31,8 @@ class Feed extends React.Component {
             return <h2>Nothing in feed</h2>
         }
         return (
-            <Link to='/'></Link>
+            ""
+            // <PostList posts={this.state.posts} />
         );
     }
 }
@@ -36,4 +40,12 @@ class Feed extends React.Component {
 export default Feed;
 
 
-
+// return (
+//     if (type === 'video') {
+//     return <Video />
+// } else if (type === "image") {
+//     return <Image />
+// } else {
+//     return <Text />
+// }
+// )
