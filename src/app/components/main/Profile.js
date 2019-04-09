@@ -17,7 +17,7 @@ class Profile extends React.Component {
             this.setState({
                 user: user,
             })
-            console.log(user.posts)
+
         })
 
     }

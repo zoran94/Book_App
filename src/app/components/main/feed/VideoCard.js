@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const VideoCard = (props) => {
 
-    console.log(props);
 
     const { comments, type, videoUrl, id } = props.posts;
 
@@ -17,7 +16,7 @@ const VideoCard = (props) => {
                         </div>
                         <div className="post-info">
                             <span>Video post</span>
-                            <Link to={`/${id}`}><span className="right">{comments.length} Comments</span></Link>
+                            <Link to={`/post/${id}`}><span className="right">{comments.length} Comments</span></Link>
                         </div>
                     </div>
                 </div>

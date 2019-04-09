@@ -13,7 +13,7 @@ const TextCard = (props) => {
                         </div>
                         <div className="post-info">
                             <span>Text post</span>
-                            <Link to={`/${id}`}><span className="right">{comments.length} Comments</span></Link>
+                            <Link to={`/post/${id}`}><span className="right">{comments.length} Comments</span></Link>
                         </div>
                     </div>
                 </div>
