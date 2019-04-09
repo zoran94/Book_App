@@ -3,10 +3,10 @@ import React from 'react';
 
 const Footer = () => {
     const color = {
-        backgroundColor: "#ee6e73"
+        backgroundColor: "#009587"
     }
     return (
-        <footer className="page-footer">
+        <footer className="page-footer" style={color}>
             <div className="container">
 
                 <div className="footer-copyright center" style={color}>
