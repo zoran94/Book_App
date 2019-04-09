@@ -5,22 +5,7 @@ import * as data from "./../../../services/FetchProfile";
 class Feed extends React.Component {
     constructor(props) {
         super(props);
-<<<<<<< HEAD
         this.state = {}
-=======
-        this.state = {
-            user: [],
-        }
-    }
-
-
-    componentDidMount() {
-        data.fetchUser().then(user => {
-            this.setState({
-                user: user,
-            })
-        })
->>>>>>> master
     }
 
 
