@@ -13,12 +13,9 @@ code {
     monospace;
 }
 
-
 .footer-copyright {
   background-color: #ee6e73;
 }
-
-
 
 #root {
   display: flex;
@@ -29,10 +26,44 @@ code {
 .sticky-main {
   flex: 1 0 auto;
 }
-    
+
+#root{
+  background-color: lightgray;
+}
 
 .right-border {
-  border-right: 1px solid black;
+  border-right: 1px solid darkgrey;
   padding-right: 30px;
  
+}
+.post-info {
+  display: flex;
+  justify-content: space-between;
+  color: darkgrey;
+  padding: 20px;
+}
+
+.card .card-content {
+  padding-bottom: 0;
+}
+
+.postImg{
+  width: 700px;
+  display: block;
+  margin: 0 auto;
+}
+
+.post-center {
+  margin-left: 100px;
+}
+
+a{
+  color: darkgrey;
+}
+.post-bg-color{
+  background-color: white;
+}
+
+.white-text{
+  color: darkgrey;
 }

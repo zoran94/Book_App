@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import fetchPosts from './../../../services/fetchPosts';
+import fetchPosts from '../../../../services/fetchPosts';
+import FeedList from '../feed/FeedList';
 
 
 class Feed extends React.Component {
@@ -15,7 +16,6 @@ class Feed extends React.Component {
         fetchPosts()
             .then((fetchedPosts) => {
                 this.setState({ posts: fetchedPosts });
-                console.log(fetchedPosts)
             })
     }
 
@@ -27,12 +27,11 @@ class Feed extends React.Component {
 
     render() {
 
-        if (!this.state.length) {
+        if (!this.state.posts.length) {
             return <h2>Nothing in feed</h2>
         }
         return (
-            ""
-            // <PostList posts={this.state.posts} />
+            <FeedList posts={this.state.posts} className="post-container" />
         );
     }
 }
@@ -40,12 +39,3 @@ class Feed extends React.Component {
 export default Feed;
 
 
-// return (
-//     if (type === 'video') {
-//     return <Video />
-// } else if (type === "image") {
-//     return <Image />
-// } else {
-//     return <Text />
-// }
-// )
