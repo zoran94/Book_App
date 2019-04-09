@@ -25,12 +25,24 @@ class Profile extends React.Component {
 
     displayUser = () => {
         return (
-            <div className="singleUser">
+            <div className="singleUser" >
                 <div className="center" style={{ marginTop: " 150px" }}>
                     <img src={this.state.user.avatarUrl} alt="..." />
                     <h4>{this.state.user.firstname} {this.state.user.lastname}</h4>
-                    <p>{this.state.user.about}</p>
-                    <p>Posts: {this.state.user.posts.length} Comments: {this.state.user.comments.length}</p>
+                    <p><b>Bio: </b> {this.state.user.about.bio}</p>
+                    <p><b>Job: </b>{this.state.user.about.job}</p>
+                    <div className="postComments">
+                        <div className="chip">
+                            <div className="lg-chip-icon">C</div>
+                            {this.state.user.posts.length} Posts
+                        </div>
+                        <div className="chip">
+                            <div className="lg-chip-icon">C</div>
+                            {this.state.user.comments.length} Comments
+                        </div>
+
+                    </div>
+
                 </div>
             </div >
         )

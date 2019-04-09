@@ -12,7 +12,13 @@ const fetchUser = (id) => {
         })
         .then(user => {
             console.log(user)
-            return new User(user.id, user.name.first, user.name.last, user.avatarUrl, user.about.bio, user.posts, user.comments)
+            return new User(
+                user.id,
+                user.name.first,
+                user.name.last,
+                user.avatarUrl,
+                user.about,
+                user.posts, user.comments)
         })
 }
 

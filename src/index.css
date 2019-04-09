@@ -14,11 +14,6 @@ code {
 }
 
 
-.footer-copyright {
-  background-color: #ee6e73;
-}
-
-
 
 #root {
   display: flex;
@@ -41,5 +36,34 @@ code {
 
   width: 60%;
   margin: 0 auto;
+}
+
+.singleUser img {
+  border-radius: 50%;
+}
+.postComments {
+ width: 60%;
+ margin: 0 auto;
+ 
+  display: flex;
+    justify-content: space-evenly;
+   
+}
+
+
+
+.lg-chip-icon {
+  display: block;
+  float: left;
+  background: #48D1CC;
+  width: 35px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  margin: 0 8px 0 -12px;
+}
+
+.singleUser img{
+  width: 300px;
 }
 
