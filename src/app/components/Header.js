@@ -12,8 +12,9 @@ const Header = (props) => {
                     <Link to="/"><span className="brand-logo">Bitbook</span></Link>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         <li ><Link to="/"><span className="right-border">Feed</span></Link></li>
-                        <li ><Link to="/"><span className="right-border">People</span></Link></li>
+                        <li ><Link to="/users"><span className="right-border">People</span></Link></li>
                         <li><Link to={`/user/1`}>Profile</Link></li>
+
                     </ul>
                 </div>
             </nav>
