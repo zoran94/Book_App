@@ -25,7 +25,7 @@ class Profile extends React.Component {
 
     displayUser = () => {
         return (
-            <div className="singleUser" >
+            <div className="singleUser " >
                 <div className="center" style={{ marginTop: " 150px" }}>
                     <img src={this.state.user.avatarUrl} alt="..." />
                     <h4>{this.state.user.firstname} {this.state.user.lastname}</h4>

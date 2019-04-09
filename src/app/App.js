@@ -3,8 +3,9 @@ import './App.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Switch, Route } from 'react-router-dom';
-import Feed from './components/main/Feed';
-import Profile from "./components/main/Profile";
+import Feed from './components/main/feed/Feed';
+import Profile from './../app/components/main/Profile';
+
 
 
 class App extends Component {
@@ -13,14 +14,14 @@ class App extends Component {
       <>
 
         <Header />
-
-        <div className="sticky-main">
-          <Switch >
-            <Route path="/user/:id" component={Profile} />
-            <Route exact path="/" component={Feed} />
-          </Switch>
-        </div>
-
+        <main className='container sticky-main'>
+          <div>
+            <Switch >
+              <Route path="/user/:id" component={Profile} />
+              <Route exact path="/" component={Feed} />
+            </Switch>
+          </div>
+        </main>
         <Footer />
       </>
     );
