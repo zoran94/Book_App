@@ -42,7 +42,6 @@ class PostPageDetails extends React.Component {
     }
 
 
-
     render() {
         if ((!this.state.post)) {
             return <h1>Loading ...</h1>
