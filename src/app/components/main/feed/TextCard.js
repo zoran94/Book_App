@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const TextCard = (props) => {
-    const { comments, type, content, id } = props.posts;
+    const { comments, content, id } = props.posts;
     return (
         <>
             <div className="row">
@@ -13,7 +13,7 @@ const TextCard = (props) => {
                         </div>
                         <div className="post-info">
                             <span>Text post</span>
-                            <Link to={`/${id}`}><span className="right">{comments.length} Comments</span></Link>
+                            <Link to={`/post/${id}`}><span className="right">{comments.length} Comments</span></Link>
                         </div>
                     </div>
                 </div>

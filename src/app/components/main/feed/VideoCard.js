@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 
 const VideoCard = (props) => {
 
-    console.log(props);
 
-    const { comments, type, videoUrl, id } = props.posts;
+    const { comments, videoUrl, id } = props.posts;
 
     return (
         <>
@@ -13,11 +12,11 @@ const VideoCard = (props) => {
                 <div className="col s8 offset-s2 ">
                     <div className="card post-bg-color">
                         <div className="card-content white-text center  rounded-corners">
-                            <iframe width="700" height="300" src={videoUrl} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullscreen></iframe>
+                            <iframe width="700" height="300" src={videoUrl} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                         <div className="post-info">
                             <span>Video post</span>
-                            <Link to={`/${id}`}><span className="right">{comments.length} Comments</span></Link>
+                            <Link to={`/post/${id}`}><span className="right">{comments.length} Comments</span></Link>
                         </div>
                     </div>
                 </div>
