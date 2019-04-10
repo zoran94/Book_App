@@ -39,7 +39,6 @@ const fetchComments = (postId) => {
     })
         .then((response) => response.json())
         .then((response) => {
-
             return response.map(comment => {
                 return new Comments(comment.userId, comment.body, comment.user.name, comment.user.avatarUrl, comment.id)
             })
