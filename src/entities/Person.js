@@ -6,7 +6,6 @@ class Person {
         this.description = description;
         this.postTime = postTime;
         this.id = id;
-
     }
 }
 

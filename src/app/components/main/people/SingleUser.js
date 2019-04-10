@@ -1,8 +1,9 @@
 import React from 'react';
-
+import PropTypes from "prop-types";
 
 const SingleUser = (props) => {
     const { description, firstName, lastName, photo, postTime } = props;
+
     return (
         <li className="collection-item avatar">
             <img src={photo} alt="" className="circle" />
@@ -13,5 +14,9 @@ const SingleUser = (props) => {
     )
 }
 
+
+SingleUser.propTypes = {
+    description: PropTypes.string.isRequired
+}
 
 export default SingleUser;
