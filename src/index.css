@@ -100,3 +100,16 @@ a{
   width: 300px;
 }
 
+.padding-top{
+  padding-top: 5%; 
+}
+
+.input-style{
+  background:white;
+}
+#search-magnifier{
+  color:#D0F0E3;
+}
+.fa-exclamation-triangle{
+  font-size: 20em;
+}

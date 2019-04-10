@@ -19,7 +19,9 @@ class People extends React.Component {
 
 
     onloadFetchUsers() {
-        fetchUsers().then((response) => console.log(response))
+        fetchUsers().then((response) => {
+            this.setState({ people: response });
+        })
     }
 
     searchUser(e) {
@@ -31,11 +33,17 @@ class People extends React.Component {
     }
 
     render() {
+        if (!this.state.people) {
+            return <h1>LOADING...</h1>
+        }
+        const people = this.state.people.filter((element) => {
+            return `${element.firstName}${element.lastName}`.toLowerCase().includes(this.state.searchValue.toLowerCase());
+        })
         return (
-            <>
+            <div className="padding-top">
                 <Search searchUser={this.searchUser} />
-                <PeopleList />
-            </>
+                <PeopleList people={people} />
+            </div>
 
         )
     }
