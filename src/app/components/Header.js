@@ -7,6 +7,7 @@ const Header = (props) => {
     }
     return (
         <>
+
             <nav style={color}>
                 <div className="nav-wrapper">
                     <Link to="/"><span className="brand-logo">Bitbook</span></Link>
@@ -26,4 +27,3 @@ const Header = (props) => {
 
 export default Header;
 
-//Testing branch

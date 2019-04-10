@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import fetchPosts from '../../../../services/fetchPosts';
 import FeedList from '../feed/FeedList';
 

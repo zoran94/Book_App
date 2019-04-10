@@ -1,13 +1,12 @@
 import React from "react";
 import * as data from "./../../../../services/FetchSinglePost";
-import fetchUser from "./../../../../services/fetchUser";
-
+import SinglePostItem from "./postDetails/SinglePostItem";
 class PostPageDetails extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             post: null,
-            comments: null,
+            comments: [],
             user: null
         }
     }
@@ -15,40 +14,44 @@ class PostPageDetails extends React.Component {
 
 
     componentDidMount() {
-        const postId = this.props.match.params.id;
+        this.onLoadPosts();
+        this.onLoadComments();
+    }
 
+
+    onLoadComments() {
+        const postId = this.props.match.params.id;
         data.fetchSinglePost(postId)
             .then(post => {
                 this.setState({
                     post: post
                 })
             })
+    }
 
+    onLoadPosts() {
+        const postId = this.props.match.params.id;
         data.fetchComments(postId)
             .then(comments => {
                 this.setState({
                     comments: comments
                 })
-                console.log(this.state.comments);
             })
-
-
-        fetchUser(this.props.match.params.id).then(user => {
-            this.setState({
-                user: user
+            .catch(error => {
+                console.log(error);
             })
-            console.log(user);
-        })
     }
 
 
 
-
-
     render() {
+        if ((!this.state.post)) {
+            return <h1>Loading ...</h1>
+        }
+
         return (
             <>
-                <h1>bla bla</h1>
+                <SinglePostItem post={this.state.post} comments={this.state.comments} />
             </>
         )
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const TextCard = (props) => {
-    const { comments, type, content, id } = props.posts;
+    const { comments, content, id } = props.posts;
     return (
         <>
             <div className="row">
