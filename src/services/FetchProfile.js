@@ -11,7 +11,7 @@ const fetchUser = (id) => {
             return response.json()
         })
         .then(user => {
-            console.log(user)
+
             return new User(
                 user.id,
                 user.name.first,
