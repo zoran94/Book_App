@@ -6,8 +6,7 @@ class PostPageDetails extends React.Component {
         super(props)
         this.state = {
             post: null,
-            comments: [],
-            user: null
+            comments: []
         }
     }
 
@@ -19,7 +18,7 @@ class PostPageDetails extends React.Component {
     }
 
 
-    onLoadComments() {
+    onLoadPosts() {
         const postId = this.props.match.params.id;
         data.fetchSinglePost(postId)
             .then(post => {
@@ -29,7 +28,7 @@ class PostPageDetails extends React.Component {
             })
     }
 
-    onLoadPosts() {
+    onLoadComments() {
         const postId = this.props.match.params.id;
         data.fetchComments(postId)
             .then(comments => {
@@ -50,9 +49,9 @@ class PostPageDetails extends React.Component {
         }
 
         return (
-            <>
+            <div className="padding-top">
                 <SinglePostItem post={this.state.post} comments={this.state.comments} />
-            </>
+            </div>
         )
 
     }
