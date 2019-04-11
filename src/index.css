@@ -40,12 +40,12 @@ code {
   padding: 20px;
 }
 
-.card .card-content {
-  padding-bottom: 0;
+.card-style {
+ 
 }
 
 .postImg{
-  width: 700px;
+  width: 100%;
   display: block;
   margin: 0 auto;
 }
@@ -55,7 +55,7 @@ code {
 }
 
 a{
-  color: darkgrey;
+  color: black;
 }
 .post-bg-color{
   background-color: white;
@@ -77,13 +77,10 @@ a{
 .postComments {
  width: 60%;
  margin: 0 auto;
- 
   display: flex;
     justify-content: space-evenly;
    
 }
-
-
 
 .lg-chip-icon {
   display: block;
