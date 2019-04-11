@@ -12,8 +12,8 @@ const TextCard = (props) => {
                             <p>{content}</p>
                         </div>
                         <div className="post-info">
-                            <span>Text post</span>
-                            <Link to={`/post/${id}`}><span className="right">{comments.length} Comments</span></Link>
+                            <span><i className="fas fa-file-alt"></i> Text post</span>
+                            <Link to={`/post/${id}`}><span className="right"><i className="far fa-comment"></i> {comments.length} Comments</span></Link>
                         </div>
                     </div>
                 </div>
