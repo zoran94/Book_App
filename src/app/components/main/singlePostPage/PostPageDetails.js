@@ -1,13 +1,19 @@
 import React from "react";
 import * as data from "./../../../../services/FetchSinglePost";
 import SinglePostItem from "./postDetails/SinglePostItem";
+import createComment from "../../../../services/createComment";
+
 class PostPageDetails extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             post: null,
-            comments: []
+            comments: [],
+            commentValue: ""
+
         }
+        this.onCreateComment = this.onCreateComment.bind(this);
+        this.onChangeCommentValue = this.onChangeCommentValue.bind(this);
     }
 
 
@@ -42,6 +48,21 @@ class PostPageDetails extends React.Component {
     }
 
 
+    onChangeCommentValue(e) {
+        this.setState({ commentValue: e.target.value });
+    }
+
+    onCreateComment() {
+        const postId = this.props.match.params.id;
+        createComment(this.state.commentValue, postId)
+            .then(() => {
+                this.onLoadComments();
+                this.setState({
+                    commentValue: ""
+                })
+            })
+    }
+
 
     render() {
         if ((!this.state.post)) {
@@ -50,7 +71,12 @@ class PostPageDetails extends React.Component {
 
         return (
             <div className="padding-top">
-                <SinglePostItem post={this.state.post} comments={this.state.comments} />
+                <SinglePostItem
+                    onCreateComment={this.onCreateComment}
+                    onChangeCommentValue={this.onChangeCommentValue}
+                    commentValue={this.state.commentValue}
+                    post={this.state.post}
+                    comments={this.state.comments} />
             </div>
         )
 
