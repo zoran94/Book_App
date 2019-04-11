@@ -6,11 +6,11 @@ import TextCard from './TextCard';
 const FeedList = (props) => {
     const postsJSX = props.posts.map((post) => {
         if (post.type === 'video') {
-            return <VideoCard posts={post} key={post.id} />
+            return <VideoCard posts={post} key={post.id} onDeletePosts={props.onDeletePosts} />
         } else if (post.type === "image") {
-            return <ImageCard posts={post} key={post.id} />
+            return <ImageCard posts={post} key={post.id} onDeletePosts={props.onDeletePosts} />
         } else {
-            return <TextCard posts={post} key={post.id} />
+            return <TextCard posts={post} key={post.id} onDeletePosts={props.onDeletePosts} />
         }
 
     })

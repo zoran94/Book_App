@@ -1,7 +1,7 @@
 import React from 'react';
 import fetchPosts from '../../../../services/fetchPosts';
 import FeedList from '../feed/FeedList';
-
+import deletePost from "./../../../../services/deletePost";
 
 class Feed extends React.Component {
     constructor(props) {
@@ -18,6 +18,12 @@ class Feed extends React.Component {
             })
     }
 
+    onDeletePosts = (id) => {
+        deletePost(id).then(response => {
+            console.log(response);
+        })
+    }
+
     componentDidMount() {
         this.onLoadPosts();
     }
@@ -30,7 +36,7 @@ class Feed extends React.Component {
             return <h2>Nothing in feed</h2>
         }
         return (
-            <FeedList posts={this.state.posts} className="post-container" />
+            <FeedList posts={this.state.posts} className="post-container" onDeletePosts={this.onDeletePosts} />
 
         );
 

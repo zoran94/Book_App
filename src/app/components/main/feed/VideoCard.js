@@ -16,6 +16,7 @@ const VideoCard = (props) => {
                         </div>
                         <div className="post-info">
                             <span className=""><i className="fas fa-video"></i> Video post</span>
+                            <i className="fas fa-trash-alt" ></i>
                             <Link to={`/post/${id}`}><span className="right"><i className="far fa-comment"></i> {comments.length} Comments</span></Link>
                         </div>
                     </div>
