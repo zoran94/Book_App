@@ -31,7 +31,9 @@ class Feed extends React.Component {
         }
         return (
             <FeedList posts={this.state.posts} className="post-container" />
+
         );
+
     }
 }
 
