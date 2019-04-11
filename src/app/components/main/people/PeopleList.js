@@ -14,7 +14,7 @@ const PeopleList = (props) => {
         <ul className="collection">
             {props.people.map(user => {
                 const { description, firstName, lastName, photo, postTime, id } = user;
-                return <SingleUser key={id} description={description} firstName={firstName} lastName={lastName} photo={photo} postTime={postTime} />
+                return <SingleUser key={id} description={description} firstName={firstName} lastName={lastName} photo={photo} postTime={postTime} id={id} />
             })}
 
         </ul>
