@@ -2,7 +2,7 @@ import React from "react";
 import * as data from "./../../../../services/FetchSinglePost";
 import SinglePostItem from "./postDetails/SinglePostItem";
 import createComment from "../../../../services/createComment";
-
+import deleteComment from "./../../../../services/deleteComment";
 class PostPageDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -31,8 +31,7 @@ class PostPageDetails extends React.Component {
 
   onLoadComments() {
     const postId = this.props.match.params.id;
-    data
-      .fetchComments(postId)
+    data.fetchComments(postId)
       .then(comments => {
         this.setState({
           comments: comments
@@ -56,6 +55,16 @@ class PostPageDetails extends React.Component {
       });
     });
   }
+
+
+
+  onDelete = (id) => {
+    deleteComment(id).then(response => {
+      console.log(response);
+    })
+  }
+
+
 
   render() {
     if (!this.state.post) {
