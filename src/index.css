@@ -110,3 +110,39 @@ a{
 .fa-exclamation-triangle{
   font-size: 20em;
 }
+
+
+.plus {
+  font-size: 50px;
+  color: pink;
+  background: white;
+ position: absolute;
+ right: 100px;
+ bottom: 70px;
+ position: fixed
+
+}
+.video {
+  font-size: 50px;
+  color: red;
+  position: absolute;
+  right: 100px;
+  bottom: 130px;
+  position: fixed;
+}
+.image {
+  font-size: 50px;
+  color: green;
+  position: absolute;
+  right: 100px;
+  bottom: 190px;
+  position: fixed;
+}
+.post {
+  font-size: 50px;
+  color: #68b6f4;
+  position: absolute;
+  right: 100px;
+  bottom: 250px;
+  position: fixed;
+}

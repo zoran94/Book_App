@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import FeedList from './FeedList';
 
 const TextCard = (props) => {
+
     const { comments, content, id } = props.posts;
     return (
         <>

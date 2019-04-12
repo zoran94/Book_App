@@ -25,7 +25,7 @@ const fetchPost = () => {
                 } else {
                     return new Text(id, userId, type, post.text, comments);
                 }
-            })
+            }).reverse()
         })
 
 }
