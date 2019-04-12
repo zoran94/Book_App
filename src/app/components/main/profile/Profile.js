@@ -1,15 +1,18 @@
 import React from "react";
-import * as data from "./../../../services/FetchProfile";
+import * as data from "../../../../services/FetchProfile";
 import { Link } from "react-router-dom";
 import { Modal, Button } from "react-materialize";
 import M from "materialize-css";
-
+import ModalContent from "./ModalContent";
 class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null
+      user: null,
+      modalVisible: false
     };
+
+    this.modalToggle = this.modalToggle.bind(this)
   }
 
   componentDidMount() {
@@ -20,14 +23,25 @@ class Profile extends React.Component {
     });
   }
 
+  modalToggle() {
+    this.setState((prevState) => {
+      return {
+        modalVisible: !prevState.modalVisible
+      }
+    })
+  }
+
+
+
   displayUser = () => {
     const editButton =
-      this.props.match.params.id == 1 ? <Button>Edit Profile</Button> : "";
+      this.props.match.params.id == 1 ? <Button onClick={this.modalToggle} >Edit Profile</Button> : "";
 
     return (
       <>
-        <Modal header="Modal Header" trigger={editButton}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        {editButton}
+        <Modal open={this.state.modalVisible}>
+          <ModalContent click={this.modalToggle} />
         </Modal>
 
         <div className="singleUser ">

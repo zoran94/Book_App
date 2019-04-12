@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Switch, Route } from "react-router-dom";
 import Feed from "./components/main/feed/Feed";
-import Profile from "./../app/components/main/Profile";
+import Profile from "./components/main/profile/Profile";
 import People from "./components/main/people/People";
 import PostSinglePage from "./components/main/singlePostPage/PostPageDetails";
 
