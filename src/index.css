@@ -111,11 +111,12 @@ a{
   font-size: 20em;
 }
 
+.modal{
+  padding: 50px;
+}
 
-.plus {
+.buttons {
   font-size: 50px;
-  color: pink;
-  background: white;
  position: absolute;
  right: 100px;
  bottom: 70px;

@@ -11,9 +11,9 @@ class Feed extends React.Component {
         super(props);
         this.state = {
             posts: [],
-            open: false,
             text: "",
-            imageUrl: ""
+            imageUrl: "",
+            videoUrl: ""
         }
     }
 
@@ -35,11 +35,6 @@ class Feed extends React.Component {
             type: 'text',
             text: this.state.text,
         }
-        this.setState(prevState => {
-            return {
-                open: !prevState.open
-            }
-        })
         createPost(body)
             .then(() => {
                 this.onLoadPosts();
@@ -48,6 +43,7 @@ class Feed extends React.Component {
 
     onCreateImg = (e) => {
         this.setState({ imageUrl: e.target.value })
+  
     }
 
     onPostImage = () => {
@@ -55,27 +51,38 @@ class Feed extends React.Component {
             type: "image",
             imageUrl: this.state.imageUrl
         }
-        createPost(body).then(() => {
-            this.onLoadPosts()
+        const err = document.getElementById("errorMes");
+
+        if(this.state.imageUrl.slice(0, 5) === "https"){
+            err.textContent =""
+            createPost(body).then(() => {
+                this.onLoadPosts()
+            })
+        }else {
+            err.textContent = "image must be valid url"
+            err.style.color = "red"       
+        }
+    }
+
+    onCreateVid = (e) => {
+        this.setState({ videoUrl: e.target.value })
+  
+    }
+    onPostVideo = ()=>{
+        const body = {
+            type: "video",
+            videoUrl: this.state.videoUrl
+        }
+        createPost(body)
+        .then(() => {
+            this.onLoadPosts();
         })
     }
 
 
     componentDidMount() {
         this.onLoadPosts();
-
-        // {
-        //     type: 'image'
-        //     imageUrl: ""
-        // }
-        // {
-        //     type: 'video'
-        //     text: ""
-        // }
     }
-
-
-
 
 
 
@@ -83,6 +90,7 @@ class Feed extends React.Component {
         if (!this.state.posts.length) {
             return <h2>Nothing in feed</h2>
         }
+
         return (
             <>
                 <FeedList posts={this.state.posts}
@@ -94,6 +102,13 @@ class Feed extends React.Component {
                     onPostText={this.onPostText}
                     onCreateImg={this.onCreateImg}
                     onPostImage={this.onPostImage}
+                    onInvaildImg={this.onInvaildImg}
+                    onChangeVideo={this.onCreateVid}
+                    onPostVideo={this.onPostVideo}
+                    disabledText={!this.state.text.length}
+                    disabledImage={!this.state.imageUrl.length}
+                    disabledVideo={!this.state.videoUrl.length}
+
                 />
             </>
         );
