@@ -1,34 +1,114 @@
 import React, { Component } from "react";
+import createPost from "./../../../../services/createPost";
+//import fetchPosts from "./../../../../services/fetchPosts";
 import M from "materialize-css";
 import { Modal } from "react-materialize";
+import PostForm from "./../feed/PostForm";
 
 class CreatePost extends Component {
     constructor(props) {
         super(props)
         this.state = {
             isModalOpen: true,
-            postType: 'text'
+            postType: 'text' || "imageUrl" || "videoUrl",
+            text: "",
+            imageUrl: "",
+            videoUrl: "",
+            modalVisible: false
         }
-
-        this.instances = [];
+        
     }
-
+    
     componentDidMount() {
+    
         const createModals = document.querySelectorAll(".modal");
         this.instances = M.Modal.init(createModals)
         console.log(this.instances);
-
+    
         const actionButton = document.querySelectorAll('.fixed-action-btn');
         const instancesOfActionButton = M.FloatingActionButton.init(actionButton, {
             direction: "top",
-
         });
-
     }
 
 
+    onCreateText = (e) => {
+        this.setState({
+            text: e.target.value
+        })
+    }
 
-    render() {
+    onPostText = () => {
+        const body = {
+            type: 'text',
+            text: this.state.text,
+
+        }
+        createPost(body)
+            .then(() => {
+                this.setState({
+                    text: ""
+                })
+            })
+    }
+
+    onCreateImg = (e) => {
+        this.setState({ imageUrl: e.target.value })
+    }
+
+    
+    onPostImage = () => {
+        const body = {
+            type: "image",
+            imageUrl: this.state.imageUrl
+        }
+        const err = document.getElementById("errorMes");
+
+        if (this.state.imageUrl.slice(0, 5) === "https") {
+            err.textContent = ""
+            createPost(body).then(() => {
+                this.setState((prevState) => {
+                    return ({
+                        imageUrl: "",
+                    })
+                })
+            })
+        } else {
+            err.textContent = "image must be valid url"
+            err.style.color = "red"
+        }
+    }
+    onCreateVid = (e) => {
+        this.setState({ videoUrl: e.target.value })
+
+    }
+    
+
+    
+    onPostVideo = () => {
+        const body = {
+            type: "video",
+            videoUrl: this.state.videoUrl
+        }
+        createPost(body)
+            .then(() => {
+                this.setState({
+                    videoUrl: ""
+                })
+            })
+    }
+
+    modalToggle =() =>{
+        this.setState((prevState) => {
+          return {
+            modalVisible: !prevState.modalVisible
+          }
+        })
+      }
+
+      
+      
+      render() {
 
         return (
             <>
@@ -37,56 +117,19 @@ class CreatePost extends Component {
                         <i className="large material-icons"></i>
                     </a>
                     <ul>
-                        <li><a className="btn-floating #68b6f4 modal-trigger" data-target="modalPost"><i className="material-icons fa fa-text-width"></i></a></li>
-                        <li><a className="btn-floating green darken-1 modal-trigger" data-target="modalImage" ><i className="material-icons fa fa-image"></i></a></li>
-                        <li><a className="btn-floating red modal-trigger" data-target="modalVideo" ><i className="material-icons fa fa-video"></i></a></li>
+                        <li><a className="btn-floating #68b6f4" ><i className="material-icons fa fa-text-width"></i></a></li>
+                        <li><a className="btn-floating green darken-1"  onClick={this.state.proptypes === "imageUrl" ? this.modalToggle : ""}><i className="material-icons fa fa-image"></i></a></li>
+                        <li><a className="btn-floating red "><i className="material-icons fa fa-video"></i></a></li>
                     </ul>
                 </div>
 
-                <Modal open={""}>
-                    {this.state.postType === 'text' && <PostForm postName="Text Post" />}
-                    {postType === 'imageUrl' && <PostForm postName="Image Post" />}
-                    {postType === 'videoUrl' && <PostForm postName="Video Post" />}
-                </Modal>
 
-
-                <div id="modalPost" open={this.props.isVisible} className="modal">
-                    <h3>New text post</h3>
-                    <span>Post content</span>
-                    <div>
-                        <textarea className="materialize-textarea" value={this.props.text} onChange={this.props.onChangeText}></textarea>
-                        <button onClick={() => this.instances[0].close()}
-                            disabled={this.props.disabledText}
-                            className=" btn" >Post</button>
-                    </div>
-
-                </div>
-
-                <div id="modalImage" className="modal">
-                    <h3>New image post</h3>
-                    <span>Post image url</span>
-                    <div>
-                        <input type="text" value={this.props.imageUrl} onChange={this.props.onCreateImg} />
-                        <p id="errorMes"></p>
-                    </div>
-                    <br />
-                    <button id="buttImg" onClick={this.props.onPostImage}
-                        disabled={this.props.disabledImage}
-                        className=" btn" >Post</button>
-
-                </div>
-
-                <div id="modalVideo" className="modal">
-                    <h3>New video post</h3>
-                    <span>YouTube video link</span>
-                    <div>
-                        <input type="text" value={this.props.videoUrl} onChange={this.props.onChangeVideo} />
-                        <button onClick={this.props.onPostVideo}
-                            disabled={this.props.disabledVideo}
-                            className=" btn">Post</button>
-                    </div>
-                </div>
-
+                <Modal open={this.state.modalVisible}>
+            {this.state.postType === 'text' && <PostForm postName="Text Post" onPostText={this.onPostText} onCreateText={this.onCreateText} />}
+            {this.state.postType === 'imageUrl' && <PostForm postName="Image Post" />}
+            {this.state.postType === 'videoUrl' && <PostForm postName="Video Post" />}
+        </Modal>
+    
             </>
 
         )
