@@ -34,16 +34,19 @@ class Feed extends React.Component {
         const body = {
             type: 'text',
             text: this.state.text,
+
         }
         createPost(body)
             .then(() => {
                 this.onLoadPosts();
+                this.setState({
+                    text: ""
+                })
             })
     }
 
     onCreateImg = (e) => {
         this.setState({ imageUrl: e.target.value })
-  
     }
 
     onPostImage = () => {
@@ -53,30 +56,36 @@ class Feed extends React.Component {
         }
         const err = document.getElementById("errorMes");
 
-        if(this.state.imageUrl.slice(0, 5) === "https"){
-            err.textContent =""
+        if (this.state.imageUrl.slice(0, 5) === "https") {
+            err.textContent = ""
             createPost(body).then(() => {
-                this.onLoadPosts()
+                this.onLoadPosts();
+                this.setState({
+                    imageUrl: ""
+                })
             })
-        }else {
+        } else {
             err.textContent = "image must be valid url"
-            err.style.color = "red"       
+            err.style.color = "red"
         }
     }
 
     onCreateVid = (e) => {
         this.setState({ videoUrl: e.target.value })
-  
+
     }
-    onPostVideo = ()=>{
+    onPostVideo = () => {
         const body = {
             type: "video",
             videoUrl: this.state.videoUrl
         }
         createPost(body)
-        .then(() => {
-            this.onLoadPosts();
-        })
+            .then(() => {
+                this.onLoadPosts();
+                this.setState({
+                    videoUrl: ""
+                })
+            })
     }
 
 
@@ -108,6 +117,10 @@ class Feed extends React.Component {
                     disabledText={!this.state.text.length}
                     disabledImage={!this.state.imageUrl.length}
                     disabledVideo={!this.state.videoUrl.length}
+                    text={this.state.text}
+                    imageUrl={this.state.imageUrl}
+                    videoUrl={this.state.videoUrl}
+
 
                 />
             </>

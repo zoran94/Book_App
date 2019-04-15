@@ -1,8 +1,6 @@
 import BASE_URL from "./../shared/baseUrl";
 
 const createPost = (body) => {
-
-
     return fetch(`${BASE_URL}/posts`, {
         method: 'POST',
         headers: {
@@ -11,7 +9,6 @@ const createPost = (body) => {
         },
         body: JSON.stringify(body)
     })
-
 }
 
 export default createPost;

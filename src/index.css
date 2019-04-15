@@ -115,14 +115,7 @@ a{
   padding: 50px;
 }
 
-.buttons {
-  font-size: 50px;
- position: absolute;
- right: 100px;
- bottom: 70px;
- position: fixed
 
-}
 .video {
   font-size: 50px;
   color: red;
@@ -139,6 +132,7 @@ a{
   bottom: 190px;
   position: fixed;
 }
+
 .post {
   font-size: 50px;
   color: #68b6f4;
@@ -146,4 +140,12 @@ a{
   right: 100px;
   bottom: 250px;
   position: fixed;
+}
+
+
+.plus {
+  position: absolute;
+  right: 100px;
+  bottom: 100px;
+  position: fixed
 }
