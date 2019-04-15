@@ -58,10 +58,10 @@ class PostPageDetails extends React.Component {
 
 
 
-  onDelete = (id) => {
+  onDeleteComment = (id) => {
     deleteComment(id).then(response => {
-      console.log(response);
     })
+    this.onLoadComments()
   }
 
 
@@ -80,6 +80,7 @@ class PostPageDetails extends React.Component {
           post={this.state.post}
           comments={this.state.comments}
           disabled={!this.state.commentValue.length}
+          onDeleteComment={this.onDeleteComment}
         />
       </div>
     );

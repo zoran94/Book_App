@@ -13,7 +13,7 @@ const TextCard = (props) => {
                         </div>
                         <div className="post-info">
                             <span><i className="fas fa-file-alt"></i> Text post</span>
-                            <i className="fas fa-trash-alt" onClick={() => props.onDeletePosts(id)} ></i>
+                            <button className="btn" onClick={() => props.onDeletePosts(id)} >delete</button>
                             <Link to={`/post/${id}`}><span className="right"><i className="far fa-comment"></i> {comments.length} Comments</span></Link>
                         </div>
                     </div>

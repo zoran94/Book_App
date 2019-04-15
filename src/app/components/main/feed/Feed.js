@@ -22,7 +22,11 @@ class Feed extends React.Component {
         deletePost(id).then(response => {
             console.log(response);
         })
+        this.onLoadPosts()
+        window.location.reload();
     }
+
+
 
     componentDidMount() {
         this.onLoadPosts();

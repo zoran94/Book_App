@@ -43,10 +43,10 @@ const SinglePostItem = props => {
       {!props.comments.length ? (
         <h1 className="center">No comments</h1>
       ) : (
-        props.comments.map(comment => {
-          return <SingleComment comment={comment} key={comment.id} />;
-        })
-      )}
+          props.comments.map(comment => {
+            return <SingleComment comment={comment} key={comment.id} onDeleteComment={props.onDeleteComment} />;
+          })
+        )}
     </>
   );
 };

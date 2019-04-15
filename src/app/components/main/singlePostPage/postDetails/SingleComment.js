@@ -8,7 +8,7 @@ const SingleComment = (props) => {
                 <Link to={`/user/${props.comment.userId}`}><img src={props.comment.avatarUrl} alt="" className="circle" /></Link>
                 <Link to={`/user/${props.comment.userId}`}> <span className="title"><b>{props.comment.user.first}</b></span></Link>
                 <p>{props.comment.body}</p>
-                <i className="fas fa-trash-alt"></i>
+                <button className="btn" onClick={() => props.onDeleteComment(props.comment.id)}>delete</button>
 
             </li>
         </ul>

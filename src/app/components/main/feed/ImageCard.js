@@ -13,7 +13,7 @@ const ImageCard = (props) => {
                         </div>
                         <div className="post-info">
                             <span><i className="fas fa-image"></i> Image post</span>
-                            <i className="fas fa-trash-alt"></i>
+                            <button className="btn" onClick={() => props.onDeletePosts(id)}>delete</button>
                             <Link to={`/post/${id}`}><span className="right"><i className="far fa-comment"></i> {comments.length} Comments</span></Link>
                         </div>
                     </div>
