@@ -13,9 +13,11 @@ class Feed extends React.Component {
             posts: [],
             text: "",
             imageUrl: "",
-            videoUrl: ""
+            videoUrl: "",
+            isVisible: false
         }
     }
+
 
     onLoadPosts() {
         fetchPosts()
@@ -60,11 +62,16 @@ class Feed extends React.Component {
             err.textContent = ""
             createPost(body).then(() => {
                 this.onLoadPosts();
-                this.setState({
-                    imageUrl: ""
+                this.setState((prevState) => {
+                    return ({
+                        imageUrl: "",
+                        isVisible: !prevState.isVisible
+                    })
                 })
             })
         } else {
+            const buttImg = document.getElementById("buttImg");
+            buttImg.setAttribute("className", "modal-open")
             err.textContent = "image must be valid url"
             err.style.color = "red"
         }
@@ -106,7 +113,8 @@ class Feed extends React.Component {
                     className="post-container"
                     onChangeText={this.onCreateText}
                 />
-                <CreatePost open={this.state.open}
+                <CreatePost
+                    open={this.state.open}
                     onChangeText={this.onCreateText}
                     onPostText={this.onPostText}
                     onCreateImg={this.onCreateImg}
@@ -120,8 +128,7 @@ class Feed extends React.Component {
                     text={this.state.text}
                     imageUrl={this.state.imageUrl}
                     videoUrl={this.state.videoUrl}
-
-
+                    isVisible={this.state.isVisible}
                 />
             </>
         );
