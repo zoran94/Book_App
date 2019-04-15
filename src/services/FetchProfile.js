@@ -3,7 +3,7 @@ import BASE_URL from './../shared/baseUrl';
 
 
 const fetchUser = (id) => {
-    return fetch(`https://book-api.hypetech.xyz/v1/users/${id}?_embed[]=comments&_embed[]=posts`, {
+    return fetch(`${BASE_URL}/users/${id}?_embed[]=comments&_embed[]=posts`, {
         headers: {
             "Content-Type": "application/json",
             "x-api-key": "B1tD3V"
@@ -24,14 +24,26 @@ const fetchUser = (id) => {
         })
 }
 
-const editProfile = (id, dataObject) => {
+
+const editProfile = (id, fullName, imageUrl, bio) => {
+
+    const updateObject = {
+        avatarUrl: imageUrl,
+        name: {
+            first: fullName,
+        },
+        about: {
+            bio: bio,
+        }
+    }
+
     return fetch(`${BASE_URL}/users/${id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
             "x-api-key": "B1tD3V"
         },
-        body: JSON.stringify(dataObject)
+        body: JSON.stringify(updateObject)
     })
         .then(response => {
             return response.json()

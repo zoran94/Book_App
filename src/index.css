@@ -69,6 +69,7 @@ a {
 
 .singleUser img {
   border-radius: 50%;
+  height: 300px;
 }
 .postComments {
   width: 60%;
@@ -112,4 +113,8 @@ a {
 }
 .modal-close{
   display:none;
+}
+.error{
+  background-color: pink;
+  color: red;
 }
