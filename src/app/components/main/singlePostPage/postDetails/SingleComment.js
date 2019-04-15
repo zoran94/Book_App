@@ -12,7 +12,6 @@ const SingleComment = (props) => {
 
             </li>
         </ul>
-
     )
 
 
