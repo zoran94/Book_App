@@ -17,14 +17,12 @@ class Profile extends React.Component {
   }
 
   onLoadUser = () => {
-    data.fetchUser(this.props.match.params.id).then(user => {
-      this.setState({
-        user: user
+    data.fetchUser(this.props.match.params.id)
+      .then(user => {
+        this.setState({
+          user: user
+        });
       });
-    });
-  }
-  componentDidMount() {
-    this.onLoadUser()
   }
 
   modalToggle() {
@@ -35,11 +33,25 @@ class Profile extends React.Component {
     })
   }
 
+  componentDidUpdate(prevProps) {
+    const id = this.props.match.params.id;
+    const prevId = prevProps.match.params.id
+
+    if (id !== prevId) {
+      this.onLoadUser(id);
+    }
+  }
+
+  componentDidMount() {
+    this.onLoadUser()
+  }
+
+
 
 
   displayUser = () => {
     const editButton =
-      this.props.match.params.id == 1 ? <Button onClick={this.modalToggle} >Edit Profile</Button> : "";
+      this.props.match.params.id == 1 ? <Button onClick={this.modalToggle} className="edit-buton-position">Edit Profile</Button> : "";
 
     return (
       <>

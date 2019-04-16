@@ -6,13 +6,23 @@ import { editProfile } from '../../../../services/FetchProfile'
 class ModalContent extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = {
       fullName: this.props.firstName,
       avatarUrl: this.props.imageUrl,
       description: this.props.bio
     }
+
     this.onUpdateProfile = this.onUpdateProfile.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.firstName !== this.props.firstName) {
+      this.setState({
+        fullName: this.props.firstName,
+        avatarUrl: this.props.imageUrl,
+        description: this.props.bio
+      })
+    }
   }
 
   onInputChange = (e) => {
@@ -26,7 +36,6 @@ class ModalContent extends React.Component {
     const { id, onLoadUser } = this.props;
 
     e.preventDefault();
-
 
     if (!this.validate().valid) {
       return;
@@ -83,15 +92,12 @@ class ModalContent extends React.Component {
 
   render() {
     const { errors } = this.validate();
-
     const { props } = this;
-
-
 
     return (
       <form className="row" onSubmit={e => e.preventDefault()}>
         <div className="row">
-          <h4 className="col s5 offset-s1">Update profile</h4>
+          <h4 className="col s5 offset-s2">Update profile</h4>
         </div>
 
         <InputField
@@ -121,8 +127,11 @@ class ModalContent extends React.Component {
           error={errors.description}
         />
 
+        <div className="col s2"></div>
         <Button onClick={this.onUpdateProfile}>Update</Button>
-        <Button onClick={props.click} className="right">Close</Button>
+
+        <Button onClick={props.click} className="modal-button-space">Close</Button>
+
       </form>
     );
   }

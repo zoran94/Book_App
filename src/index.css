@@ -118,3 +118,15 @@ a {
   background-color: pink;
   color: red;
 }
+.edit-buton-position{
+  position: fixed;
+  right: 20%;
+  top: 10%;
+}
+.modal {
+  width: 37% !important ; 
+  height: 75% !important ;
+}
+.modal-button-space{
+  margin-left: 35%;
+}

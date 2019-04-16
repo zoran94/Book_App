@@ -4,7 +4,7 @@ import React from 'react';
 const InputField = (props) => {
     return (
         <div className="row">
-            <div className="input-field col s7">
+            <div className="input-field col s7 offset-s2 center-modal-content">
                 <input
                     id={props.name}
                     type={props.type}
