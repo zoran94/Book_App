@@ -3,17 +3,22 @@ import React from "react";
 
 const PostForm = (props) => {
     return (
-        <form onSubmit={(e) =>{e.preventDefault()}}>
-        <div >
-            <h3>{props.postName}</h3>
-            <span>Post content</span>
+        <form onSubmit={(e) => { e.preventDefault() }}>
+            <div >
+                <h3>{props.postName}</h3>
+                <span>Post content</span>
+                <div>
+                    <input className="materialize-textarea getRed" onChange={props.onCreate} value={props.value}></input>
+                </div>
+                <p id="errorMes"></p>
+            </div>
+            <div className="row"></div>
             <div>
-                <input className="materialize-textarea" onCreateText={props.onCreateText}></input>
-                <button className=" btn" onPostText={props.onPostText}>Post</button>
+                <button className="btn" onClick={props.onPost} disabled={props.disabled}>Post</button>
+                <button className="btn right" onClick={props.click}>close</button>
             </div>
 
-        </div>
-</form>
+        </form>
     )
 }
 

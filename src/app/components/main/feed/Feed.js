@@ -13,7 +13,7 @@ class Feed extends React.Component {
         }
     }
 
-    onLoadPosts() {
+    onLoadPosts = () => {
         fetchPosts()
             .then((fetchedPosts) => {
                 this.setState({ posts: fetchedPosts });
@@ -36,7 +36,8 @@ class Feed extends React.Component {
                     onChangeText={this.onCreateText}
                 />
 
-                <CreatePost />
+                <CreatePost
+                    onReload={this.onLoadPosts} />
             </>
         );
 
