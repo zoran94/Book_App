@@ -13,7 +13,6 @@ code {
     monospace;
 }
 
-
 #root {
   display: flex;
   min-height: 100vh;
@@ -24,14 +23,13 @@ code {
   flex: 1 0 auto;
 }
 
-#root{
+#root {
   background-color: lightgray;
 }
 
 .right-border {
   border-right: 1px solid darkgrey;
   padding-right: 30px;
- 
 }
 .post-info {
   display: flex;
@@ -41,10 +39,9 @@ code {
 }
 
 .card-style {
- 
 }
 
-.postImg{
+.postImg {
   width: 100%;
   display: block;
   margin: 0 auto;
@@ -54,38 +51,37 @@ code {
   margin-left: 100px;
 }
 
-a{
+a {
   color: black;
 }
-.post-bg-color{
+.post-bg-color {
   background-color: white;
 }
 
-.white-text{
+.white-text {
   color: darkgrey;
 }
 
 .singleUser {
-
   width: 60%;
   margin: 0 auto;
 }
 
 .singleUser img {
   border-radius: 50%;
+  height: 300px;
 }
 .postComments {
- width: 60%;
- margin: 0 auto;
+  width: 60%;
+  margin: 0 auto;
   display: flex;
-    justify-content: space-evenly;
-   
+  justify-content: space-evenly;
 }
 
 .lg-chip-icon {
   display: block;
   float: left;
-  background: #48D1CC;
+  background: #48d1cc;
   width: 35px;
   border-radius: 50%;
   text-align: center;
@@ -93,21 +89,21 @@ a{
   margin: 0 8px 0 -12px;
 }
 
-.singleUser img{
+.singleUser img {
   width: 300px;
 }
 
-.padding-top{
-  padding-top: 5%; 
+.padding-top {
+  padding-top: 5%;
 }
 
-.input-style{
-  background:white;
+.input-style {
+  background: white;
 }
-#search-magnifier{
-  color:#D0F0E3;
+#search-magnifier {
+  color: #d0f0e3;
 }
-.fa-exclamation-triangle{
+.fa-exclamation-triangle {
   font-size: 20em;
 }
 
@@ -148,4 +144,29 @@ a{
   right: 100px;
   bottom: 100px;
   position: fixed
+
+}
+  .upload-photo {
+  font-size: 2em;
+  color: lightgrey;
+  width: 10%;
+}
+.modal-close{
+  display:none;
+}
+.error{
+  background-color: pink;
+  color: red;
+}
+.edit-buton-position{
+  position: fixed;
+  right: 20%;
+  top: 10%;
+}
+.modal {
+  width: 37% !important ; 
+  height: 75% !important ;
+}
+.modal-button-space{
+  margin-left: 35%;
 }

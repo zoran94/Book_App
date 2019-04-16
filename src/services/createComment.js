@@ -1,22 +1,22 @@
 import BASE_URL from '../shared/baseUrl';
 
 
-const createComment = (body, postId) => {
+const createComment = (commentText, postId) => {
 
-    body = {
+    const apiComment = {
         postId: postId,
         userId: 1, //ovo bi trebalo da se obrise kad predjemo sa dev servera
-        body: body
+        body: commentText
     }
+
     return fetch(`${BASE_URL}/comments`, {
         method: 'POST',
         headers: {
             "x-api-key": "B1tD3V",
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(body)
+        body: JSON.stringify(apiComment)
     })
-
 
 }
 

@@ -14,7 +14,7 @@ const fetchUsers = () => {
         .then(response => response.map((user) => {
             const { about, name, posts, avatarUrl, id } = user;
             const lastPost = posts[posts.length - 1] ? posts[posts.length - 1].createdAt : "No posts to display";
-            return new Person(name.first, name.last, avatarUrl, about.bio, lastPost, id)
+            return new Person(name.first, name.last, avatarUrl, (about || "").bio, lastPost, id)
         })
         )
 
