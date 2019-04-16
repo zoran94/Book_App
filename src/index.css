@@ -106,7 +106,47 @@ a {
 .fa-exclamation-triangle {
   font-size: 20em;
 }
-.upload-photo {
+
+.modal{
+  padding: 50px;
+}
+
+
+.video {
+  font-size: 50px;
+  color: red;
+  position: absolute;
+  right: 100px;
+  bottom: 130px;
+  position: fixed;
+}
+.image {
+  font-size: 50px;
+  color: green;
+  position: absolute;
+  right: 100px;
+  bottom: 190px;
+  position: fixed;
+}
+
+.post {
+  font-size: 50px;
+  color: #68b6f4;
+  position: absolute;
+  right: 100px;
+  bottom: 250px;
+  position: fixed;
+}
+
+
+.plus {
+  position: absolute;
+  right: 100px;
+  bottom: 100px;
+  position: fixed
+
+}
+  .upload-photo {
   font-size: 2em;
   color: lightgrey;
   width: 10%;

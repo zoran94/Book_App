@@ -20,6 +20,7 @@ const FeedList = (props) => {
         <div className="row">
             {postsJSX}
         </div>
+
     );
 }
 
