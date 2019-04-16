@@ -8,7 +8,7 @@ class CreatePost extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            postType: 'text',
+            postType: '',
             text: "",
             imageUrl: "",
             videoUrl: "",
@@ -41,12 +41,27 @@ class CreatePost extends Component {
         createPost(body)
             .then(() => {
                 this.setState({
-                    text: ""
+                    text: "",
+
                 })
                 this.props.onReload();
             })
         this.modalToggle()
     }
+
+    onChangePostText = () => {
+        this.setState(prevState => {
+            return {
+                postType: "text",
+                modalVisible: !prevState.modalVisible
+            }
+        })
+        const $button = document.querySelector(".waves-effect");
+        $button.style.display = "none";
+    }
+
+
+
 
 
     onCreateImg = (e) => {
@@ -139,6 +154,7 @@ class CreatePost extends Component {
     }
 
 
+
     render() {
         return (
             <>
@@ -147,7 +163,7 @@ class CreatePost extends Component {
                         <i className="large material-icons"></i>
                     </a>
                     <ul>
-                        <li><a className="btn-floating #68b6f4" ><i className="material-icons fa fa-text-width" onClick={this.modalToggle}></i></a></li>
+                        <li><a className="btn-floating #68b6f4" ><i className="material-icons fa fa-text-width" onClick={this.onChangePostText}></i></a></li>
                         <li><a className="btn-floating green darken-1" onClick={this.onChangePostImg}><i className="material-icons fa fa-image"></i></a></li>
                         <li><a className="btn-floating red "><i className="material-icons fa fa-video" onClick={this.onChangePostVid}></i></a></li>
                     </ul>
