@@ -38,9 +38,6 @@ code {
   padding: 20px;
 }
 
-.card-style {
-}
-
 .postImg {
   width: 100%;
   display: block;
@@ -97,6 +94,12 @@ a {
   padding-top: 5%;
 }
 
+.margin-top{
+  position: absolute;
+  top: 15%;
+  right: 7%;
+}
+
 .input-style {
   background: white;
 }
@@ -107,9 +110,9 @@ a {
   font-size: 20em;
 }
 
-.modal{
+/* .modal{
   padding: 50px;
-}
+} */
 
 
 .video {
@@ -154,10 +157,7 @@ a {
 .modal-close{
   display:none;
 }
-.error{
-  background-color: pink;
-  color: red;
-}
+
 .edit-buton-position{
   position: fixed;
   right: 20%;
@@ -166,6 +166,9 @@ a {
 .modal {
   width: 37% !important ; 
   height: 75% !important ;
+}
+.feed-modal{
+  height: 38% !important;
 }
 .modal-button-space{
   margin-left: 35%;
