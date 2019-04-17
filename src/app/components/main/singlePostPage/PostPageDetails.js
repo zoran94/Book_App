@@ -15,10 +15,6 @@ class PostPageDetails extends React.Component {
     this.onChangeCommentValue = this.onChangeCommentValue.bind(this);
   }
 
-  componentDidMount() {
-    this.onLoadPosts();
-    this.onLoadComments();
-  }
 
   onLoadPosts() {
     const postId = this.props.match.params.id;
@@ -27,6 +23,10 @@ class PostPageDetails extends React.Component {
         post: post
       });
     });
+  }
+
+  onChangeCommentValue(e) {
+    this.setState({ commentValue: e.target.value });
   }
 
   onLoadComments() {
@@ -43,10 +43,6 @@ class PostPageDetails extends React.Component {
       });
   }
 
-  onChangeCommentValue(e) {
-    this.setState({ commentValue: e.target.value });
-  }
-
   onCreateComment() {
     const postId = this.props.match.params.id;
     createComment(this.state.commentValue, postId).then(() => {
@@ -55,6 +51,13 @@ class PostPageDetails extends React.Component {
         commentValue: ""
       });
     });
+  }
+
+
+
+  componentDidMount() {
+    this.onLoadPosts();
+    this.onLoadComments();
   }
 
   render() {

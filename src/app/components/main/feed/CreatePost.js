@@ -169,7 +169,7 @@ class CreatePost extends Component {
                     </ul>
                 </div>
 
-                <Modal open={this.state.modalVisible}>
+                <Modal open={this.state.modalVisible} className="feed-modal">
                     {this.state.postType === 'text' && <PostForm postName="Text Post"
                         onPost={this.onPostText}
                         onCreate={this.onCreateText}
