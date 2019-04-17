@@ -11,6 +11,15 @@ import Register from "./components/main/register/Register";
 
 class App extends Component {
   render() {
+
+    // if (!localStorage.getItem('user')) {
+    //   return (
+    //     <>
+    //       <Route path='/' component={Register} />
+    //     </>
+    //   )
+    // }
+
     return (
       <>
         <Header />

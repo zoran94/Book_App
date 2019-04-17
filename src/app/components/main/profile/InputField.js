@@ -5,7 +5,7 @@ const InputField = (props) => {
     return (
         <div className="row">
             <div className="input-field col s7 offset-s2 center-modal-content">
-                <input
+                {props.inputName} <input
                     id={props.name}
                     type={props.type}
                     name={props.name}

@@ -5,7 +5,7 @@ const RegisterInfo = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="registerinfo">
                 <h2>BitBook Register</h2>
                 <br />
                 <div>
@@ -14,7 +14,7 @@ const RegisterInfo = () => {
                           when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                           It has survived not only five centuries, but also the leap into electronic typesetting,
                           remaining essentially unchanged.
-    
+
             </p>
                 </div>
             </div>

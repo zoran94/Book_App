@@ -6,7 +6,10 @@ import RegisterInfo from "./RegisterInfo";
 class Register extends Component {
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = {
+
+
+        }
     }
 
 
@@ -15,13 +18,12 @@ class Register extends Component {
         return (
             <>
                 <RegisterInfo />
-
+                <RegisterForm
+                />
             </>
         )
 
     }
-
-
 }
 
 
