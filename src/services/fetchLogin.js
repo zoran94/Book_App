@@ -1,8 +1,7 @@
 import BASE_URL from "./../shared/baseUrl";
-const fetchRegister = (body) => {
+const fetchLogin = (body) => {
 
-
-    return fetch(`${BASE_URL}/auth/register`, {
+    return fetch(`${BASE_URL}/auth/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -10,8 +9,11 @@ const fetchRegister = (body) => {
         },
         body: JSON.stringify(body)
     })
-        .then(res => res.json())
+        .then(res => {
+            console.log(res);
+            return res.json()
+        })
 
 }
 
-export default fetchRegister;
+export default fetchLogin;

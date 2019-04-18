@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import M from "materialize-css";
 import InputField from "./../profile/InputField";
+import { Link } from 'react-router-dom';
 
 
 const RegisterForm = (props) => {
@@ -40,7 +41,7 @@ const RegisterForm = (props) => {
                     </>
                     :
                     <>
-                        <button className="btn register" onClick={props.onCreateRegister}>Login</button> <span onClick={props.onToggleRegister} className="register-toggle">If you dont have account, register!</span>
+                        <button className="btn register" onClick={props.onLogin}><Link to="/feed">Login</Link></button> <span onClick={props.onToggleRegister} className="register-toggle">If you dont have account, register!</span>
                     </>}
             </form>
         </>

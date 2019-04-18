@@ -12,14 +12,6 @@ import Register from "./components/main/register/Register";
 class App extends Component {
   render() {
 
-    // if (!localStorage.getItem('user')) {
-    //   return (
-    //     <>
-    //       <Route path='/' component={Register} />
-    //     </>
-    //   )
-    // }
-
     return (
       <>
         <Header />
@@ -29,8 +21,8 @@ class App extends Component {
               <Route path="/user/:id" component={Profile} />
               <Route path="/post/:id" component={PostSinglePage} />
               <Route path="/users" component={People} />
-              <Route path="/register" component={Register} />
-              <Route exact path="/" component={Feed} />
+              <Route path="/feed/" component={Feed} />
+              <Route exact path='/' component={Register} />
             </Switch>
           </div>
         </main>

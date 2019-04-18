@@ -1,4 +1,4 @@
-
+import BASE_URL from './../shared/baseUrl'
 import Comments from "./../entities/Comments";
 import Video from '../entities/Video';
 import Text from '../entities/Text';
@@ -7,7 +7,7 @@ import Image from '../entities/Image';
 const fetchSinglePost = (id) => {
 
 
-    return fetch(`http://book-api-dev.hypetech.xyz/posts/${id}`, {
+    return fetch(`${BASE_URL}/posts/${id}`, {
         headers: {
             "Content-Type": "application/json",
             "x-api-key": "B1tD3V"
