@@ -6,8 +6,12 @@ const RegisterInfo = (props) => {
     return (
         <>
             <div className="registerinfo">
-                {props.registerUi && <h2>BitBook Register</h2>}
-                <h2>BitBook Login</h2>
+                {props.registerUi ?
+                    <>
+                        <h2>BitBook Register</h2>
+                    </>
+                    : <h2>BitBook Login</h2>}
+
                 <br />
                 <div>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -16,7 +20,7 @@ const RegisterInfo = (props) => {
                           It has survived not only five centuries, but also the leap into electronic typesetting,
                           remaining essentially unchanged.
 
-            </p>
+                    </p>
                 </div>
             </div>
         </>

@@ -10,7 +10,7 @@ class Register extends Component {
             name: "",
             email: "",
             password: "",
-            registerUi: true
+            registerUi: false
         }
     }
 
@@ -18,6 +18,12 @@ class Register extends Component {
     onInputChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value,
+        })
+    }
+
+    onToggleRegister = () => {
+        this.setState((prevState) => {
+            return { registerUi: !prevState.registerUi }
         })
     }
 
@@ -41,11 +47,12 @@ class Register extends Component {
 
         return (
             <>
-                <RegisterInfo />
+                <RegisterInfo registerUi={this.state.registerUi} />
                 <RegisterForm
                     name={this.state}
                     onInputChange={this.onInputChange}
                     onCreateRegister={this.onCreateRegister}
+                    onToggleRegister={this.onToggleRegister}
                 />
             </>
         )
