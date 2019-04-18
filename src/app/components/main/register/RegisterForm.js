@@ -1,82 +1,46 @@
 import React, { Component } from "react";
 import M from "materialize-css";
 import InputField from "./../profile/InputField";
-import fetchRegister from "./../../../../services/fetchRegister";
-
-class RegisterForm extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            name: "",
-            email: "",
-            password: ""
-        }
-    }
 
 
-    // componentDidMount() {
-    //     this.onCreateRegister()
-    // }
+const RegisterForm = (props) => {
 
+    return (
+        <>
+            <form className="form">
 
-    onInputChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value,
-        })
-    }
+                <InputField
+                    type="text"
+                    inputName="Name"
+                    name="name"
+                    onInputChange={props.onInputChange}
+                    value={props.name.name}
 
-    onCreateRegister = (e) => {
-        e.preventDefault();
-        console.log(e);
-        const body = {
-            name: this.state.name,
-            email: this.state.email,
-            password: this.state.password
-        };
+                />
 
-        fetchRegister(body).then(response => {
-            console.log(response);
-        })
-    }
+                <InputField
+                    type="text"
+                    inputName="Email"
+                    name="email"
+                    onInputChange={props.onInputChange}
+                    value={props.name.email}
+                />
 
-    render() {
-        return (
-            <>
-                <form className="form">
+                <InputField
+                    type="password"
+                    inputName="Password"
+                    name="password"
+                    onInputChange={props.onInputChange}
+                    value={props.name.password}
+                />
 
-                    <InputField
-                        type="text"
-                        inputName="Name"
-                        name="name"
-                        onInputChange={this.onInputChange}
-                        value={this.state.name}
-
-                    />
-
-                    <InputField
-                        type="text"
-                        inputName="Email"
-                        name="email"
-                        onInputChange={this.onInputChange}
-                        value={this.state.email}
-                    />
-
-                    <InputField
-                        type="password"
-                        inputName="Password"
-                        name="password"
-                        onInputChange={this.onInputChange}
-                        value={this.state.password}
-                    />
-
-                    <button className="btn register" onClick={this.onCreateRegister}>Register</button>
-                </form>
-            </>
-        )
-    }
-
-
+                <button className="btn register" onClick={props.onCreateRegister}>Register</button>
+            </form>
+        </>
+    )
 }
+
+
 
 
 export default RegisterForm;

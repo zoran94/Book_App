@@ -1,12 +1,13 @@
 import React from "react";
 
-const RegisterInfo = () => {
+const RegisterInfo = (props) => {
 
 
     return (
         <>
             <div className="registerinfo">
-                <h2>BitBook Register</h2>
+                {props.registerUi && <h2>BitBook Register</h2>}
+                <h2>BitBook Login</h2>
                 <br />
                 <div>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
