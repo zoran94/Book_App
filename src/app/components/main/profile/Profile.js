@@ -1,6 +1,5 @@
 import React from "react";
 import * as data from "../../../../services/FetchProfile";
-import { Link } from "react-router-dom";
 import { Modal, Button } from "react-materialize";
 import M from "materialize-css";
 import ModalContent from "./ModalContent";

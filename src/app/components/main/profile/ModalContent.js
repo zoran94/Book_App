@@ -79,15 +79,15 @@ class ModalContent extends React.Component {
     return validationResult;
   }
 
-  validateFullName = (name) => {
-    if (!name) {
-      return 'Full name is required!';
-    } else if (name.length < 3) {
-      return 'Min length is 3!';
-    }
+  // validateFullName = (name) => {
+  //   if (!name) {
+  //     return 'Full name is required!';
+  //   } else if (name.length < 3) {
+  //     return 'Min length is 3!';
+  //   }
 
-    return null;
-  }
+  //   return null;
+  // }
 
 
   render() {
