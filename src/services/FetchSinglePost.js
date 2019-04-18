@@ -31,7 +31,7 @@ const fetchSinglePost = (id) => {
 
 const fetchComments = (postId) => {
 
-    return fetch(`http://book-api-dev.hypetech.xyz/comments?postId=${postId}&_expand=user`, {
+    return fetch(`${BASE_URL}/comments?postId=${postId}&_expand=user`, {
         headers: {
             "Content-Type": "application/json",
             "x-api-key": "B1tD3V"
