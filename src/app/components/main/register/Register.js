@@ -55,10 +55,10 @@ class Register extends Component {
         fetchLogin(body)
             .then(response => {
                 localStorage.setItem("key", response.accessToken);
+                localStorage.setItem("userId", JSON.stringify(jwt_decode(response.accessToken)))
             })
             .then(res => {
-                this.props.history.push('/feed/');
-                console.log(jwt_decode(localStorage.getItem('key')))
+                this.props.history.push('/feed/')
             }
             )
 

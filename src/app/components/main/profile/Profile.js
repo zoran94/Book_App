@@ -16,7 +16,8 @@ class Profile extends React.Component {
   }
 
   onLoadUser = () => {
-    data.fetchUser(this.props.match.params.id)
+    const user = JSON.parse(localStorage.getItem('userId'))
+    data.fetchUser(user.id)
       .then(user => {
         this.setState({
           user: user
