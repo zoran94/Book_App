@@ -14,6 +14,10 @@ const fetchUser = (id) => {
         })
         .then(user => {
 
+            if (user.error) {
+                throw user.message;
+            }
+
             return new User(
                 user.id,
                 user.name.first,

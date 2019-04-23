@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import RegisterForm from "./RegisterForm";
 import RegisterInfo from "./RegisterInfo";
 import fetchRegister from "./../../../../services/fetchRegister";
-import fetchLogin from "./../../../../services/fetchLogin";
-import jwt_decode from 'jwt-decode'
+// import fetchLogin from "./../../../../services/fetchLogin";
+import { fetchLogin } from "../../../../services/authService";
+
 
 class Register extends Component {
     constructor(props) {
@@ -12,7 +13,8 @@ class Register extends Component {
             name: "",
             email: "",
             password: "",
-            registerUi: false
+            registerUi: false,
+            error: '',
         }
     }
 
@@ -25,7 +27,10 @@ class Register extends Component {
 
     onToggleRegister = () => {
         this.setState((prevState) => {
-            return { registerUi: !prevState.registerUi }
+            return {
+                registerUi: !prevState.registerUi,
+                error: '',
+            }
         })
     }
 
@@ -53,14 +58,10 @@ class Register extends Component {
         };
 
         fetchLogin(body)
-            .then(response => {
-                localStorage.setItem("key", response.accessToken);
-                localStorage.setItem("userId", JSON.stringify(jwt_decode(response.accessToken)))
-            })
-            .then(res => {
+            .then(() => {
                 this.props.history.push('/feed/')
-            }
-            )
+            })
+            .catch(error => this.setState({ error }))
 
     }
 
@@ -76,6 +77,7 @@ class Register extends Component {
                     onCreateRegister={this.onCreateRegister}
                     onToggleRegister={this.onToggleRegister}
                     onLogin={this.onLogin}
+                    error={this.state.error}
                 />
             </>
         )

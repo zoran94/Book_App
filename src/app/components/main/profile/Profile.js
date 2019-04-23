@@ -3,6 +3,7 @@ import * as data from "../../../../services/FetchProfile";
 import { Modal, Button } from "react-materialize";
 import M from "materialize-css";
 import ModalContent from "./ModalContent";
+import { getAuthUserId } from '../../../../services/authService';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -16,13 +17,15 @@ class Profile extends React.Component {
   }
 
   onLoadUser = () => {
-    const user = JSON.parse(localStorage.getItem('userId'))
-    data.fetchUser(user.id)
+    const userId = getAuthUserId();
+
+    data.fetchUser(userId)
       .then(user => {
         this.setState({
           user: user
         });
-      });
+      })
+      .catch(error => console.log(error));
   }
 
   modalToggle() {

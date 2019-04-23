@@ -35,13 +35,15 @@ const RegisterForm = (props) => {
                     value={props.name.password}
                 />
 
+                {props.error && <p>{props.error}</p>}
+
                 {props.name.registerUi ?
                     <>
                         <button className="btn register" onClick={props.onCreateRegister}>Register</button> <span onClick={props.onToggleRegister} className="register-toggle">Already have account ?</span>
                     </>
                     :
                     <>
-                        <button className="btn register" onClick={props.onLogin}><Link to="/feed">Login</Link></button> <span onClick={props.onToggleRegister} className="register-toggle">If you dont have account, register!</span>
+                        <button className="btn register" onClick={props.onLogin}>Login</button> <span onClick={props.onToggleRegister} className="register-toggle">If you dont have account, register!</span>
                     </>}
             </form>
         </>
