@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import RegisterForm from "./RegisterForm";
 import RegisterInfo from "./RegisterInfo";
-import fetchRegister from "./../../../../services/fetchRegister";
+// import fetchRegister from "./../../../../services/fetchRegister";
 // import fetchLogin from "./../../../../services/fetchLogin";
-import { fetchLogin } from "../../../../services/authService";
+import { fetchLogin, fetchRegister } from "../../../../services/authService";
 
 
 class Register extends Component {
@@ -62,7 +62,6 @@ class Register extends Component {
                 this.props.history.push('/feed/')
             })
             .catch(error => this.setState({ error }))
-
     }
 
 

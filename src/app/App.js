@@ -22,7 +22,6 @@ class App extends Component {
             <div>
               <Switch>
                 <Route path="/user/:id" component={Profile} />
-                <Route path="/profile" component={Profile} />
                 <Route path="/post/:id" component={PostSinglePage} />
                 <Route path="/users" component={People} />
                 <Route path="/feed/" component={Feed} />

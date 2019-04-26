@@ -1,5 +1,5 @@
 import React from 'react';
-import fetchPosts from '../../../../services/fetchPosts';
+import {fetchPost} from '../../../../services/postService';
 import FeedList from '../feed/FeedList';
 import CreatePost from "./../feed/CreatePost";
 import FilterButton from "./FilterButton";
@@ -24,7 +24,7 @@ class Feed extends React.Component {
 
 
     onLoadPosts = () => {
-        fetchPosts()
+        fetchPost()
             .then((fetchedPosts) => {
                 this.setState({ posts: fetchedPosts });
             })

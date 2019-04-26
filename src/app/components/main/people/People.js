@@ -1,8 +1,7 @@
 import React from 'react';
 import Search from './Search';
 import PeopleList from './PeopleList';
-import fetchUsers from './../../../../services/fetchUsers';
-
+import {fetchUsers} from './../../../../services/userService';
 
 
 

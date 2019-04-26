@@ -1,5 +1,5 @@
 import React from "react";
-import * as data from "../../../../services/FetchProfile";
+import {fetchUser} from "../../../../services/userService";
 import { Modal, Button } from "react-materialize";
 import M from "materialize-css";
 import ModalContent from "./ModalContent";
@@ -17,9 +17,8 @@ class Profile extends React.Component {
   }
 
   onLoadUser = () => {
-    const userId = getAuthUserId();
-
-    data.fetchUser(userId)
+  
+   fetchUser(this.props.match.params.id)
       .then(user => {
         this.setState({
           user: user
@@ -54,7 +53,7 @@ class Profile extends React.Component {
 
   displayUser = () => {
     const editButton =
-      this.props.match.params.id == 1 ? <Button onClick={this.modalToggle} className="edit-buton-position">Edit Profile</Button> : "";
+      this.props.match.params.id == getAuthUserId() ? <Button onClick={this.modalToggle} className="edit-buton-position">Edit Profile</Button> : "";
 
     return (
       <>

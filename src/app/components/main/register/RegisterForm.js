@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import M from "materialize-css";
 import InputField from "./../profile/InputField";
-import { Link } from 'react-router-dom';
+
 
 
 const RegisterForm = (props) => {
 
     return (
-        <>
             <form className="form">
 
                 {props.name.registerUi &&
@@ -46,7 +45,6 @@ const RegisterForm = (props) => {
                         <button className="btn register" onClick={props.onLogin}>Login</button> <span onClick={props.onToggleRegister} className="register-toggle">If you dont have account, register!</span>
                     </>}
             </form>
-        </>
     )
 }
 

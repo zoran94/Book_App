@@ -1,7 +1,8 @@
 import React from "react";
-import * as data from "./../../../../services/FetchSinglePost";
+import {fetchSinglePost} from "./../../../../services/postService";
+import {fetchComments} from "./../../../../services/commentService";
 import SinglePostItem from "./postDetails/SinglePostItem";
-import createComment from "../../../../services/createComment";
+import {createComment} from "../../../../services/commentService";
 
 class PostPageDetails extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class PostPageDetails extends React.Component {
 
   onLoadPosts() {
     const postId = this.props.match.params.id;
-    data.fetchSinglePost(postId).then(post => {
+    fetchSinglePost(postId).then(post => {
       this.setState({
         post: post
       });
@@ -31,8 +32,7 @@ class PostPageDetails extends React.Component {
 
   onLoadComments() {
     const postId = this.props.match.params.id;
-    data
-      .fetchComments(postId)
+    fetchComments(postId)
       .then(comments => {
         this.setState({
           comments: comments

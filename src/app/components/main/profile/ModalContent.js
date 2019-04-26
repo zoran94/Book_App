@@ -1,7 +1,7 @@
 import React from "react";
 import InputField from "./InputField";
 import { Button } from "react-materialize";
-import { editProfile } from '../../../../services/FetchProfile'
+import { editProfile } from '../../../../services/userService'
 
 class ModalContent extends React.Component {
   constructor(props) {

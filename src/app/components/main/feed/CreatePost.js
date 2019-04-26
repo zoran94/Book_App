@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import createPost from "./../../../../services/createPost";
+import {createPost} from "./../../../../services/postService";
 import M from "materialize-css";
 import { Modal } from "react-materialize";
 import PostForm from "./../feed/PostForm";
