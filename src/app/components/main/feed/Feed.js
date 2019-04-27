@@ -10,7 +10,7 @@ class Feed extends React.Component {
         super(props);
         this.state = {
             posts: [],
-            postType: ""
+            postType: ""    
         }
     }
 

@@ -1,17 +1,13 @@
 import React from "react";
 
-const RegisterInfo = (props) => {
+const LoginInfo = (props) => {
 
 
     return (
         <>
             <div className="registerinfo">
-                {props.registerUi ?
-                    <>
-                        <h2>BitBook Register</h2>
-                    </>
-                    : <h2>BitBook Login</h2>}
-
+                <h2>BitBook Login</h2>}
+          
                 <br />
                 <div>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -29,4 +25,4 @@ const RegisterInfo = (props) => {
 
 
 
-export default RegisterInfo;
+export default LoginInfo;

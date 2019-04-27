@@ -8,7 +8,7 @@ import Feed from "./components/main/feed/Feed";
 import Profile from "./components/main/profile/Profile";
 import People from "./components/main/people/People";
 import PostSinglePage from "./components/main/singlePostPage/PostPageDetails";
-import Register from "./components/main/register/Register";
+import LandingPage from "./components/main/landingPage/LandingPage";
 import { isAuth } from "../services/authService";
 
 class App extends Component {
@@ -33,7 +33,7 @@ class App extends Component {
       );
     }
 
-    return <Route exact path='/' component={Register} />
+    return <Route exact path='/' component={LandingPage} />
 
   }
 }

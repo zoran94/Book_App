@@ -1,12 +1,12 @@
 import BASE_URL from "./../shared/baseUrl";
-import jwt_decode from 'jwt-decode'
+import jwt_decode from 'jwt-decode';
 
 const fetchLogin = (body) => {
     return fetch(`${BASE_URL}/auth/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "x-api-key": "B1tPr0d",
+            "x-api-key": "B1tD3V",
         },
         body: JSON.stringify(body)
     })
@@ -28,7 +28,7 @@ const fetchRegister = (body) => {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "x-api-key": "B1tPr0d",
+            "x-api-key": "B1tD3V",
         },
         body: JSON.stringify(body)
     })

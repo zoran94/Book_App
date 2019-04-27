@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import RegisterForm from "./RegisterForm";
 import RegisterInfo from "./RegisterInfo";
-// import fetchRegister from "./../../../../services/fetchRegister";
-// import fetchLogin from "./../../../../services/fetchLogin";
-import { fetchLogin, fetchRegister } from "../../../../services/authService";
+import { fetchRegister } from "../../../../../services/authService";
 
 
 class Register extends Component {
@@ -13,11 +11,9 @@ class Register extends Component {
             name: "",
             email: "",
             password: "",
-            registerUi: false,
             error: '',
         }
     }
-
 
     onInputChange = (e) => {
         this.setState({
@@ -25,14 +21,6 @@ class Register extends Component {
         })
     }
 
-    onToggleRegister = () => {
-        this.setState((prevState) => {
-            return {
-                registerUi: !prevState.registerUi,
-                error: '',
-            }
-        })
-    }
 
     onCreateRegister = (e) => {
         e.preventDefault();
@@ -49,33 +37,16 @@ class Register extends Component {
             })
     }
 
-    onLogin = (e) => {
-        e.preventDefault();
-
-        const body = {
-            email: this.state.email,
-            password: this.state.password
-        };
-
-        fetchLogin(body)
-            .then(() => {
-                this.props.history.push('/feed/')
-            })
-            .catch(error => this.setState({ error }))
-    }
-
 
     render() {
 
         return (
             <>
-                <RegisterInfo registerUi={this.state.registerUi} />
+                <RegisterInfo />
                 <RegisterForm
                     name={this.state}
                     onInputChange={this.onInputChange}
                     onCreateRegister={this.onCreateRegister}
-                    onToggleRegister={this.onToggleRegister}
-                    onLogin={this.onLogin}
                     error={this.state.error}
                 />
             </>
@@ -86,4 +57,4 @@ class Register extends Component {
 
 
 
-export default Register
+export default Register;
