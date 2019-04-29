@@ -18,14 +18,9 @@ class LandingPage extends React.Component {
     }
 
     render () {
-    return(
-        <>
-        <button onClick={this.onToggleRegister} className="btn">Register</button>
-        <button onClick={this.onToggleRegister} className="btn">Login</button>
-        {this.state.registerUi ? <Register/> : <Login/>}
-        </>
-        )
-      
+    return  this.state.registerUi ? 
+    <Register onToggleRegister={this.onToggleRegister}/> :
+    <Login onToggleRegister={this.onToggleRegister}/>
     }
 }
 

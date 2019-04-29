@@ -41,15 +41,13 @@ class Register extends Component {
     render() {
 
         return (
-            <>
-                <RegisterInfo />
                 <RegisterForm
                     name={this.state}
                     onInputChange={this.onInputChange}
                     onCreateRegister={this.onCreateRegister}
                     error={this.state.error}
+                    onToggleRegister={this.props.onToggleRegister}
                 />
-            </>
         )
 
     }
