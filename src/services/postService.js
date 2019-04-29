@@ -2,20 +2,24 @@ import BASE_URL from "./../shared/baseUrl";
 import Text from '../entities/Text';
 import Image from '../entities/Image';
 import Video from '../entities/Video';
+import {getUserToken} from './authService';
+
+const POST_URL = '/posts?_embed[]=comments';
+
 
 const createPost = (body) => {
     return fetch(`${BASE_URL}/posts`, {
         method: 'POST',
         headers: {
             "x-api-key": "B1tD3V",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            'Authorization': getUserToken()
         },
         body: JSON.stringify(body)
     })
 }
 
 
-const POST_URL = '/posts?_embed[]=comments';
 
 
 
@@ -23,12 +27,14 @@ const fetchPost = () => {
     return fetch(`${BASE_URL}${POST_URL}`, {
         headers: {
             "Content-Type": "application/json",
-            "x-api-key": "B1tD3V"
+            "x-api-key": "B1tD3V",
+            'Authorization': getUserToken()
         }
 
     })
         .then((response) => response.json())
         .then((response) => {
+            console.log(response)
             return response.map((post) => {
                 const { id, userId, type, comments } = post;
                 if (type === "video") {
@@ -49,7 +55,8 @@ const fetchSinglePost = (id) => {
     return fetch(`${BASE_URL}/posts/${id}`, {
         headers: {
             "Content-Type": "application/json",
-            "x-api-key": "B1tD3V"
+            "x-api-key": "B1tD3V",
+            'Authorization': getUserToken()
         }
     })
         .then((response) => response.json())

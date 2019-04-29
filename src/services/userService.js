@@ -1,7 +1,7 @@
 import BASE_URL from './../shared/baseUrl';
 import Person from '../entities/Person';
 import User from "./../entities/User";
-
+import {getUserToken} from './authService';
 const USERS_URL = '/users/?_embed=posts';
 
 const fetchUsers = () => {
@@ -9,7 +9,8 @@ const fetchUsers = () => {
         {
             headers: {
                 "Content-Type": "application/ json",
-                "x-api-key": "B1tD3V"
+                "x-api-key": "B1tD3V",
+                'Authorization': getUserToken()
             }
         }).then(response => response.json())
         .then(response => response.map((user) => {
@@ -25,7 +26,8 @@ const fetchUser = (id) => {
     return fetch(`${BASE_URL}/users/${id}?_embed[]=comments&_embed[]=posts`, {
         headers: {
             "Content-Type": "application/json",
-            "x-api-key": "B1tD3V"
+            "x-api-key": "B1tD3V",
+            'Authorization': getUserToken()
         }
     })
         .then(response => {
@@ -64,7 +66,8 @@ const editProfile = (id, fullName, imageUrl, bio) => {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
-            "x-api-key": "B1tD3V"
+            "x-api-key": "B1tD3V",
+            'Authorization': getUserToken()
         },
         body: JSON.stringify(updateObject)
     })

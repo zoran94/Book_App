@@ -37,6 +37,7 @@ class CreatePost extends Component {
         const body = {
             type: 'text',
             text: this.state.text,
+            isPublic: true
         }
         createPost(body)
             .then(() => {
@@ -85,7 +86,8 @@ class CreatePost extends Component {
     onPostImage = () => {
         const body = {
             type: "image",
-            imageUrl: this.state.imageUrl
+            imageUrl: this.state.imageUrl,
+            isPublic: true
         }
         const $err = document.getElementById("errorMes");
         const $input = document.querySelector(".getRed");
@@ -117,7 +119,8 @@ class CreatePost extends Component {
     onPostVideo = () => {
         const body = {
             type: "video",
-            videoUrl: this.state.videoUrl
+            videoUrl: this.state.videoUrl,
+            isPublic: true
         }
         createPost(body)
             .then(() => {

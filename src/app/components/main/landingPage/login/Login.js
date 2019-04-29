@@ -42,15 +42,13 @@ class Login extends Component {
     render() {
 
         return (
-            <>
-                <LoginInfo />
                 <LoginForm
                     name={this.state}
                     onInputChange={this.onInputChange}
                     onLogin={this.onLogin}
                     error={this.state.error}
+                    onToggleRegister={this.props.onToggleRegister}
                 />
-            </>
         )
 
     }

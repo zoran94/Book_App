@@ -1,14 +1,17 @@
 import React from "react";
 import M from "materialize-css";
 import InputField from "../../profile/InputField";
-
+import RegisterInfo from "./RegisterInfo";
 
 
 const RegisterForm = (props) => {
 
     return (
-            <form className="form">
-
+        <div className="row container margin-top">
+        <RegisterInfo />
+            <form className="col s4 offset-s1 formBorder">
+            <button onClick={props.onToggleRegister} className="btn left col s6">Register</button>
+        <button onClick={props.onToggleRegister} className="btn right col s6">Login</button>
                     <InputField
                         type="text"
                         inputName="Name"
@@ -34,8 +37,9 @@ const RegisterForm = (props) => {
                 />
 
                 {props.error && <p>{props.error}</p>}
-                        <button className="btn register" onClick={props.onCreateRegister}>Register</button>
+                        <button className="btn register right" onClick={props.onCreateRegister}>Register</button>
             </form>
+            </div>
     )
 }
 

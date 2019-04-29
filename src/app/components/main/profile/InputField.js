@@ -2,9 +2,14 @@ import React from 'react';
 
 
 const InputField = (props) => {
+
+    const modalClasses= "input-field col s7 offset-s2 center-modal-content";
+    const landingPageClasses = "input-field col s12";
+    const local = !!localStorage.getItem("key");
+
     return (
         <div className="row">
-            <div className="input-field col s7 offset-s2 center-modal-content">
+            <div className={local ? modalClasses : landingPageClasses}>
                 {props.inputName} <input
                     id={props.name}
                     type={props.type}

@@ -27,6 +27,7 @@ class Feed extends React.Component {
         fetchPost()
             .then((fetchedPosts) => {
                 this.setState({ posts: fetchedPosts });
+                console.log(this.state.posts);
             })
     }
 
