@@ -1,8 +1,9 @@
 import React from "react";
-import * as data from "../../../../services/FetchProfile";
+import {fetchUser} from "../../../../services/userService";
 import { Modal, Button } from "react-materialize";
 import M from "materialize-css";
 import ModalContent from "./ModalContent";
+import { getAuthUserId } from '../../../../services/authService';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -16,12 +17,14 @@ class Profile extends React.Component {
   }
 
   onLoadUser = () => {
-    data.fetchUser(this.props.match.params.id)
+  
+   fetchUser(this.props.match.params.id)
       .then(user => {
         this.setState({
           user: user
         });
-      });
+      })
+      .catch(error => console.log(error));
   }
 
   modalToggle() {
@@ -50,7 +53,7 @@ class Profile extends React.Component {
 
   displayUser = () => {
     const editButton =
-      this.props.match.params.id == 1 ? <Button onClick={this.modalToggle} className="edit-buton-position">Edit Profile</Button> : "";
+      this.props.match.params.id == getAuthUserId() ? <Button onClick={this.modalToggle} className="edit-buton-position">Edit Profile</Button> : "";
 
     return (
       <>

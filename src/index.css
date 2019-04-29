@@ -173,3 +173,25 @@ a {
 .modal-button-space{
   margin-left: 35%;
 }
+
+/* .register {
+  margin-left: 140px;
+}
+
+.registerinfo {
+  float: left;
+    margin-top: 50px;
+    width: 50%;
+} */
+/* .form {
+  width: 50%;
+  float: right;
+  margin-top: 100px;
+  border: 1px solid grey;
+} */
+.register-toggle {
+  cursor: pointer;
+}
+.formBorder{
+  border: 1px solid green;
+}
