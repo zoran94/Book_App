@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const ImageCard = (props) => {
-    const { comments, imageUrl, id } = props.posts;
+    const { comments, imageUrl, id } = props.post;
     return (
         <>
             <div className="row">

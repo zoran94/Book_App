@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const VideoCard = (props) => {
 
 
-    const { comments, videoUrl, id } = props.posts;
-
+    const { comments, videoUrl, id } = props.post;
+    console.log(comments.length)
     return (
         <>
             <div className="row">

@@ -44,12 +44,16 @@ const getAuthUserId = () => {
     const token = localStorage.getItem('key');
     const user = jwt_decode(token);
 
-    return user.id;
+    return user.id;  //vraca user id iz tokena
+}
+const getUserToken = () => {
+    return `Bearer ${localStorage.getItem("key")}`;
 }
 
 export {
     fetchRegister,
     fetchLogin,
     isAuth,
-    getAuthUserId
+    getAuthUserId,
+    getUserToken
 } 
