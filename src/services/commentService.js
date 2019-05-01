@@ -1,5 +1,5 @@
 import BASE_URL from './../shared/baseUrl'
-import Comments from "./../entities/Comments";
+import Comment from "./../entities/Comment";
 import {getUserToken} from './../services/authService';
 import {getAuthUserId} from './../services/authService';
 
@@ -15,9 +15,13 @@ const fetchComments = (postId) => {
         .then((response) => response.json())
         .then((response) => {
             return response.map(comment => {
-                return new Comments(comment.userId, comment.body, comment.user.name, comment.user.avatarUrl, comment.id)
+                console.log(response);
+                if(!!comment.user){
+                return new Comment(comment.userId, comment.body, comment.user.name.first, comment.user.avatarUrl, comment.id)
+            }
+                return new Comment (comment.userId, comment.body, "Anonymus", 'http://via.placeholder.com/125', comment.id )
             })
-
+            
         });
 
 }
