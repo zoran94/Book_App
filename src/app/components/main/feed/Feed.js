@@ -37,7 +37,7 @@ class Feed extends React.Component {
 
     render() {
 
-        console.log(this.state.postType);
+        console.log(this.state.posts);
         if (!this.state.posts.length) {
             return <h2>Nothing in feed</h2>
         }
@@ -50,13 +50,8 @@ class Feed extends React.Component {
             <>
                 <FilterButton filterPosts={this.filterPosts} isModalVisible={this.state.isModalVisible} />
                 <div className="padding-top" >
-
-                    <FeedList posts={filteredPosts}
-                        className="post-container"
-                    />
-
-                    <CreatePost
-                        onReload={this.onLoadPosts} />
+                    <FeedList posts={filteredPosts} className="post-container"/>
+                    <CreatePost onReload={this.onLoadPosts} />
                 </div>
 
             </>

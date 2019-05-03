@@ -15,16 +15,29 @@ const fetchComments = (postId) => {
         .then((response) => response.json())
         .then((response) => {
             return response.map(comment => {
+
                 console.log(response);
                 if(!!comment.user){
                 return new Comment(comment.userId, comment.body, comment.user.name.first, comment.user.avatarUrl, comment.id)
             }
-                return new Comment (comment.userId, comment.body, "Anonymus", 'http://via.placeholder.com/125', comment.id )
+                return new Comment (comment.userId, comment.body, "Anonymus",'https://upload.wikimedia.org/wikipedia/commons/7/7e/Circle-icons-profile.svg', comment.id )
             })
             
         });
 
-}
+};
+
+ const fetchSinglePostComment = (postId) => {
+
+    return fetch(`${BASE_URL}/comments?postId=${postId}`, {
+        headers: {
+            "Content-Type": "application/json",
+            "x-api-key": "B1tD3V",
+            'Authorization': getUserToken()
+        }
+    }) 
+    .then((comments) => comments.json());
+};
 
 const createComment = (commentText, postId) => {
 
@@ -45,7 +58,9 @@ const createComment = (commentText, postId) => {
         body: JSON.stringify(apiComment)
     })
 
-}
+};
+
 export {fetchComments,
-        createComment
+        createComment,
+        fetchSinglePostComment
         }
