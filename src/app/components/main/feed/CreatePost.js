@@ -62,9 +62,6 @@ class CreatePost extends Component {
     }
 
 
-
-
-
     onCreateImg = (e) => {
         this.setState({ imageUrl: e.target.value })
     }

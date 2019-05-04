@@ -1,6 +1,7 @@
 import BASE_URL from "./../shared/baseUrl";
 import jwt_decode from 'jwt-decode';
 
+
 const fetchLogin = (body) => {
     return fetch(`${BASE_URL}/auth/login`, {
         method: "POST",

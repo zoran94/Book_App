@@ -1,6 +1,5 @@
 class Video {
     static TYPE = 'video';
-
     constructor(id, userId, type, videoUrl, comments) {
         this.id = id;
         this.userId = userId;

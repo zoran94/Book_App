@@ -30,8 +30,9 @@ class PostPageDetails extends React.Component {
     this.setState({ commentValue: e.target.value });
   }
 
-  onLoadComments() {
+  onLoadComments = () => {
     const postId = this.props.match.params.id;
+    console.log(this.state.comments);
     fetchComments(postId)
       .then(comments => {
         this.setState({
