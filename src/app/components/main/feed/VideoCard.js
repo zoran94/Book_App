@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { fetchSinglePostComment } from './../../../../services/commentService';
 
@@ -20,7 +20,7 @@ class VideoCard extends React.Component {
         this.onLoadComments();
     }
     render() {
-        
+
         const {videoUrl, id } = this.props.post;
         return (
             <>
