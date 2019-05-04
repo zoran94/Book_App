@@ -4,7 +4,7 @@ class User {
         this.firstname = firstname;
         this.lastname = lastname;
         this.avatarUrl = avatarUrl;
-        this.about = about;
+        this.about = about || "";
         this.posts = posts;
         this.comments = comments;
     }

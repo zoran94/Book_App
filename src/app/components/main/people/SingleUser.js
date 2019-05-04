@@ -8,10 +8,10 @@ const SingleUser = (props) => {
             <Link to={`/user/${id}`}><img src={photo} alt="" className="circle" /></Link>
             <Link to={`/user/${id}`}><span className="title"><strong>{firstName} {lastName}</strong></span></Link>
             <p>{description}</p>
-            <p className="secondary-content"><i className="material-icons">{postTime != "No posts to display" ? new Date(postTime).toLocaleDateString() : "User doesn't have posts"}</i></p>
+            <p className="secondary-content"><i className="material-icons">{postTime != "No posts to display" ? new Date(postTime).toLocaleDateString() : "No posts to display"}</i></p>
         </li>
     )
 }
 
 
-export default SingleUser;;
+export default SingleUser;

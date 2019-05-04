@@ -1,8 +1,10 @@
 import React from "react";
-import * as data from "./../../../../services/FetchSinglePost";
+import {fetchSinglePost} from "./../../../../services/postService";
+import {fetchComments, createComment} from "./../../../../services/commentService";
 import SinglePostItem from "./postDetails/SinglePostItem";
-import createComment from "../../../../services/createComment";
 import deleteComment from "./../../../../services/deleteComment";
+
+
 class PostPageDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -15,23 +17,23 @@ class PostPageDetails extends React.Component {
     this.onChangeCommentValue = this.onChangeCommentValue.bind(this);
   }
 
-  componentDidMount() {
-    this.onLoadPosts();
-    this.onLoadComments();
-  }
 
   onLoadPosts() {
     const postId = this.props.match.params.id;
-    data.fetchSinglePost(postId).then(post => {
+    fetchSinglePost(postId).then(post => {
       this.setState({
         post: post
       });
     });
   }
 
-  onLoadComments() {
+  onChangeCommentValue(e) {
+    this.setState({ commentValue: e.target.value });
+  }
+
+  onLoadComments = () => {
     const postId = this.props.match.params.id;
-    data.fetchComments(postId)
+    fetchComments(postId)
       .then(comments => {
         this.setState({
           comments: comments
@@ -40,10 +42,6 @@ class PostPageDetails extends React.Component {
       .catch(error => {
         console.log(error);
       });
-  }
-
-  onChangeCommentValue(e) {
-    this.setState({ commentValue: e.target.value });
   }
 
   onCreateComment() {
@@ -65,6 +63,11 @@ class PostPageDetails extends React.Component {
   }
 
 
+
+  componentDidMount() {
+    this.onLoadPosts();
+    this.onLoadComments();
+  }
 
   render() {
     if (!this.state.post) {

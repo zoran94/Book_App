@@ -1,10 +1,10 @@
-class Comments {
-    constructor(userId, body, user, avatarUrl, id) {
+class Comment {
+    constructor(userId, body, name, avatarUrl, id) {
         this.userId = userId;
         this.body = body;
-        this.user = user;
+        this.name = name;
         this.avatarUrl = avatarUrl;
         this.id = id;
     }
 }
-export default Comments;
+export default Comment;
