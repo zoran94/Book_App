@@ -45,7 +45,8 @@ const fetchUser = (id) => {
                 user.name.last,
                 user.avatarUrl,
                 user.about,
-                user.posts, user.comments)
+                user.posts, 
+                user.comments)
         })
 }
 

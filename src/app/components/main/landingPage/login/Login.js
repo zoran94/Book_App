@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import LoginForm from "./LoginForm";
 import LoginInfo from "./LoginInfo";
-import { fetchLogin} from "../../../../../services/authService";
+import { fetchLogin } from "../../../../../services/authService";
 
 
 class Login extends Component {
@@ -42,13 +42,16 @@ class Login extends Component {
     render() {
 
         return (
+            <div className="row container margin-top">
+                <LoginInfo />
+                {this.props.children}
                 <LoginForm
                     name={this.state}
                     onInputChange={this.onInputChange}
                     onLogin={this.onLogin}
                     error={this.state.error}
-                    onToggleRegister={this.props.onToggleRegister}
                 />
+            </div>
         )
 
     }

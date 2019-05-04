@@ -4,7 +4,7 @@ import Image from '../entities/Image';
 import Video from '../entities/Video';
 import {getUserToken} from './authService';
 
-const POST_URL = '/posts?_embed[]=comments';
+const POST_URL = '/posts?_embed=comments';
 
 
 const createPost = (body) => {
@@ -34,7 +34,7 @@ const fetchPost = () => {
     })
         .then((response) => response.json())
         .then((response) => {
-            console.log(response)
+            console.log(response);
             return response.map((post) => {
                 const { id, userId, type, comments } = post;
                 if (type === "video") {
@@ -74,7 +74,8 @@ const fetchSinglePost = (id) => {
         })
 }
 
-export {createPost,
-        fetchPost,
-        fetchSinglePost
+export {
+    createPost,
+    fetchPost,
+    fetchSinglePost
         }
