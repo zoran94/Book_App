@@ -9,9 +9,9 @@ const SinglePostItem = props => {
     if (props.post.type === "video") {
       return <SingleVideoPost post={props.post} />;
     } else if (props.post.type === "image") {
-      return <SingleImagePost post={props.post} comments={[]} />;
+      return <SingleImagePost post={props.post} />;
     } else {
-      return <SingleTextPost post={props.post} comments={[]} />;
+      return <SingleTextPost post={props.post} />;
     }
   };
 
@@ -43,10 +43,10 @@ const SinglePostItem = props => {
       {!props.comments.length ? (
         <h1 className="center">No comments</h1>
       ) : (
-        props.comments.map(comment => {
-          return <SingleComment comment={comment} key={comment.id} />;
-        })
-      )}
+          props.comments.map(comment => {
+            return <SingleComment comment={comment} key={comment.id} onDeleteComment={props.onDeleteComment} />;
+          })
+        )}
     </>
   );
 };

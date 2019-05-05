@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { fetchSinglePostComment } from './../../../../services/commentService';
+import {getAuthUserId} from './../../../../services/authService';
 
 class TextCard extends React.Component {
     constructor(props) {
@@ -22,7 +23,7 @@ class TextCard extends React.Component {
     }
 
     render() {
-        const {content, id } = this.props.post;
+        const {content, id, userId } = this.props.post;
         return (
             <>
                 <div className="row">
@@ -33,6 +34,12 @@ class TextCard extends React.Component {
                             </div>
                             <div className="post-info">
                                 <span><i className="fas fa-file-alt"></i> Text post</span>
+                                {
+                                    getAuthUserId() == userId ?
+                                    <i class="fas fa-trash-alt" onClick={() => this.props.onDeletePosts(id)}></i>
+                                        :
+                                       ""
+                                }
                                 <Link to={`/post/${id}`}><span className="right"><i className="far fa-comment"></i> {this.state.comments.length} Comments</span></Link>
                             </div>
                         </div>

@@ -17,7 +17,7 @@ const Header = (props) => {
 
             <nav style={color}>
                 <div className="nav-wrapper">
-                    <Link to="/"><span className="brand-logo">Bitbook</span></Link>
+                    <Link to="/feed"><span className="brand-logo">Bitbook</span></Link>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         <li ><Link to="/feed/"><span className="right-border">Feed</span></Link></li>
                         <li ><Link to="/users"><span className="right-border">People</span></Link></li>

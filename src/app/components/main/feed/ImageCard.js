@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { fetchSinglePostComment } from './../../../../services/commentService';
+import {getAuthUserId} from './../../../../services/authService';
 
 class ImageCard extends React.Component{
     constructor(props){
@@ -9,6 +10,7 @@ class ImageCard extends React.Component{
             comments: []
         }
     }
+    
     onLoadComments () {
         fetchSinglePostComment(this.props.post.id)
         .then((comments) => {
@@ -21,8 +23,7 @@ class ImageCard extends React.Component{
     }
     
     render () {
-        const { imageUrl, id } = this.props.post;
-        
+        const { imageUrl, id, userId } = this.props.post;
         return (
             <>
                 <div className="row">
@@ -33,6 +34,12 @@ class ImageCard extends React.Component{
                             </div>
                             <div className="post-info">
                                 <span><i className="fas fa-image"></i> Image post</span>
+                                {
+                                    getAuthUserId() == userId ?
+                                    <i class="fas fa-trash-alt" onClick={() => this.props.onDeletePosts(id)}></i>
+                                        :
+                                       ""
+                                }
                                 <Link to={`/post/${id}`}><span className="right"><i className="far fa-comment"></i> {this.state.comments.length} Comments</span></Link>
                             </div>
                         </div>
