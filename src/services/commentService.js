@@ -15,8 +15,6 @@ const fetchComments = (postId) => {
         .then((response) => response.json())
         .then((response) => {
             return response.map(comment => {
-
-                console.log(response);
                 if(!!comment.user){
                 return new Comment(comment.userId, comment.body, comment.user.name.first, comment.user.avatarUrl, comment.id)
             }
@@ -60,7 +58,25 @@ const createComment = (commentText, postId) => {
 
 };
 
+const deleteComment = (id) => {
+    return fetch(`${BASE_URL}/comments/${id}`, {
+        method: "DELETE",
+        headers: {
+            "x-api-key": "B1tD3V",
+            "Content-Type": "application/json",
+            "Authorization": getUserToken()
+        },
+    }).
+        then(response => {
+            return response;
+        })
+
+}
+
+
+
 export {fetchComments,
         createComment,
-        fetchSinglePostComment
+        fetchSinglePostComment,
+        deleteComment
         }

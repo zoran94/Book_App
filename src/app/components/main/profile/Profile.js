@@ -1,5 +1,5 @@
 import React from "react";
-import {fetchUser} from "../../../../services/userService";
+import { fetchUser } from "../../../../services/userService";
 import { Modal, Button } from "react-materialize";
 import M from "materialize-css";
 import ModalContent from "./ModalContent";
@@ -17,8 +17,8 @@ class Profile extends React.Component {
   }
 
   onLoadUser = () => {
-  
-   fetchUser(this.props.match.params.id)
+
+    fetchUser(this.props.match.params.id)
       .then(user => {
         this.setState({
           user: user
@@ -100,7 +100,22 @@ class Profile extends React.Component {
 
   render() {
     if (!this.state.user) {
-      return <h2>Loading...</h2>;
+      return (
+        <div className="sk-fading-circle">
+          <div className="sk-circle1 sk-circle"></div>
+          <div className="sk-circle2 sk-circle"></div>
+          <div className="sk-circle3 sk-circle"></div>
+          <div className="sk-circle4 sk-circle"></div>
+          <div className="sk-circle5 sk-circle"></div>
+          <div className="sk-circle6 sk-circle"></div>
+          <div className="sk-circle7 sk-circle"></div>
+          <div className="sk-circle8 sk-circle"></div>
+          <div className="sk-circle9 sk-circle"></div>
+          <div className="sk-circle10 sk-circle"></div>
+          <div className="sk-circle11 sk-circle"></div>
+          <div className="sk-circle12 sk-circle"></div>
+        </div>
+      )
     }
 
     return (

@@ -32,9 +32,6 @@ class Register extends Component {
         };
 
         fetchRegister(body)
-            .then(response => {
-                console.log(response.accessToken);
-            })
     }
 
 
