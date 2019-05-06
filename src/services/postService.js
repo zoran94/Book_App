@@ -19,10 +19,6 @@ const createPost = (body) => {
     })
 }
 
-
-
-
-
 const fetchPost = () => {
     return fetch(`${BASE_URL}${POST_URL}`, {
         headers: {
@@ -34,6 +30,7 @@ const fetchPost = () => {
     })
         .then((response) => response.json())
         .then((response) => {
+            console.log(response);
             return response.map((post) => {
                 const { id, userId, type, comments } = post;
                 if (type === "video") {
@@ -49,7 +46,6 @@ const fetchPost = () => {
 }
 
 const fetchSinglePost = (id) => {
-
 
     return fetch(`${BASE_URL}/posts/${id}`, {
         headers: {
