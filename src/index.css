@@ -340,3 +340,8 @@ a {
   40% { opacity: 1; } 
 }
 /* animation css above */
+
+.profilePic{
+  height: 40px;
+  margin-top: 24%;
+}
