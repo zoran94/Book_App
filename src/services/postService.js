@@ -4,7 +4,7 @@ import Image from '../entities/Image';
 import Video from '../entities/Video';
 import { getUserToken } from './authService';
 
-const POST_URL = '/posts?_embed=comments';
+const POST_URL = '/posts?_embed=comments&_expand=user';
 
 
 const createPost = (body) => {
@@ -34,11 +34,11 @@ const fetchPost = () => {
             return response.map((post) => {
                 const { id, userId, type, comments } = post;
                 if (type === "video") {
-                    return new Video(id, userId, type, post.videoUrl, comments)
+                    return new Video(id, userId, type, post.videoUrl, comments, post.user.avatarUrl)
                 } else if (type === "image") {
-                    return new Image(id, userId, type, post.imageUrl, comments);
+                    return new Image(id, userId, type, post.imageUrl, comments, post.user.avatarUrl);
                 } else {
-                    return new Text(id, userId, type, post.text, comments);
+                    return new Text(id, userId, type, post.text, comments, post.user.avatarUrl);
                 }
             }).reverse()
         })

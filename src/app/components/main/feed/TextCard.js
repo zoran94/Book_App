@@ -23,24 +23,25 @@ class TextCard extends React.Component {
     }
 
     render() {
-        const {content, id, userId } = this.props.post;
+        const {content, id, userId, avatarUrl } = this.props.post;
+        console.log(this.props.post)
         return (
             <>
                 <div className="row">
                     <div className="col s8 offset-s2">
-                        <div className="card post-bg-color">
+                        <div className="card">
                             <div className="card-content">
                                 <p>{content}</p>
                             </div>
-                            <div className="post-info">
-                                <span><i className="fas fa-file-alt"></i> Text post</span>
+                            <div className=" post-info">
+                                <span className="valign-wrapper"><img src={`${avatarUrl}`} className="circle profile-pic-post"/><i className="fas fa-file-alt valign-wrapper"></i> Text post</span>
                                 {
                                     getAuthUserId() == userId ?
-                                    <i class="fas fa-trash-alt" onClick={() => this.props.onDeletePosts(id)}></i>
+                                    <i className="fas fa-trash-alt" onClick={() => this.props.onDeletePosts(id)}></i>
                                         :
                                        ""
                                 }
-                                <Link to={`/post/${id}`}><span className="right"><i className="far fa-comment"></i> {this.state.comments.length} Comments</span></Link>
+                                <Link to={`/post/${id}`}><span className="right post-link"><i className="far fa-comment"></i> {this.state.comments.length} Comments</span></Link>
                             </div>
                         </div>
                     </div>

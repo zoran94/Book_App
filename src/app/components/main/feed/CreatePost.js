@@ -100,7 +100,7 @@ class CreatePost extends Component {
             })
             this.modalToggle()
         } else {
-            $err.textContent = "image must be valid url"
+            $err.textContent = "image must have valid url"
             $err.style.color = "red"
             $input.style.borderBottom = "1px solid red"
         }
