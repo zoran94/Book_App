@@ -9,7 +9,7 @@ class ModalContent extends React.Component {
     this.state = {
       fullName: this.props.firstName,
       avatarUrl: this.props.imageUrl,
-      description: this.props.bio
+      description: this.props.description
     }
 
     this.onUpdateProfile = this.onUpdateProfile.bind(this);
@@ -20,7 +20,7 @@ class ModalContent extends React.Component {
       this.setState({
         fullName: this.props.firstName,
         avatarUrl: this.props.imageUrl,
-        description: this.props.bio
+        description: this.props.description
       })
     }
   }

@@ -2,9 +2,9 @@ import React from 'react';
 import { fetchPost } from '../../../../services/postService';
 import FeedList from '../feed/FeedList';
 import { deletePost } from "./../../../../services/postService";
-import CreatePost from "./../feed/CreatePost";
+import NewPost from "./NewPost";
 import FilterButton from "./FilterButton";
-
+import Loader from '././../../Loader';
 
 class Feed extends React.Component {
     constructor(props) {
@@ -43,21 +43,7 @@ class Feed extends React.Component {
 
     render() {
         if (!this.state.posts.length) {
-            return (
-                <div className="sk-fading-circle">
-                    <div className="sk-circle1 sk-circle"></div>
-                    <div className="sk-circle2 sk-circle"></div>
-                    <div className="sk-circle3 sk-circle"></div>
-                    <div className="sk-circle4 sk-circle"></div>
-                    <div className="sk-circle5 sk-circle"></div>
-                    <div className="sk-circle6 sk-circle"></div>
-                    <div className="sk-circle7 sk-circle"></div>
-                    <div className="sk-circle8 sk-circle"></div>
-                    <div className="sk-circle9 sk-circle"></div>
-                    <div className="sk-circle10 sk-circle"></div>
-                    <div className="sk-circle11 sk-circle"></div>
-                    <div className="sk-circle12 sk-circle"></div>
-                </div>)
+            return <Loader/>
         }
 
         const filteredPosts = this.state.posts.filter((post) => {
@@ -70,7 +56,7 @@ class Feed extends React.Component {
                 <FilterButton filterPosts={this.filterPosts} isModalVisible={this.state.isModalVisible} />
                 <div className="padding-top" >
                     <FeedList posts={filteredPosts} className="post-container" onDeletePosts={this.onDeletePosts} />
-                    <CreatePost onReload={this.onLoadPosts} />
+                    <NewPost onReload={this.onLoadPosts} />
                 </div>
 
             </>
