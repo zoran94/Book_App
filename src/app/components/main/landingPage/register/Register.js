@@ -12,6 +12,7 @@ class Register extends Component {
             email: "",
             password: "",
             error: '',
+            success: ''
         }
     }
 
@@ -32,6 +33,27 @@ class Register extends Component {
         };
 
         fetchRegister(body)
+        .then((response) => {
+            if(response.accessToken){
+                this.setState({
+                    name: "",
+                    email: "",
+                    password: "",
+                    error: '',
+                    success: "Register Successful!"
+                })
+            } else {
+                this.setState({
+                    success: "",
+                    error:response.message
+                })
+            }
+            
+        })
+        .catch((response) => {
+           console.log(response.message); 
+        })
+        
     }
 
 
@@ -46,6 +68,7 @@ class Register extends Component {
                     onInputChange={this.onInputChange}
                     onCreateRegister={this.onCreateRegister}
                     error={this.state.error}
+                    success={this.state.success}
                 />
             </div>
         )

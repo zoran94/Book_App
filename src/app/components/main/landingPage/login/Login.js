@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import LoginForm from "./LoginForm";
 import LoginInfo from "./LoginInfo";
-import { fetchLogin } from "../../../../../services/authService";
+import { fetchLogin, loginUser } from "../../../../../services/authService";
 
 
 class Login extends Component {
@@ -32,10 +32,15 @@ class Login extends Component {
         };
 
         fetchLogin(body)
-            .then(() => {
-                this.props.history.push('/feed/')
+            .then((response) => {
+                if(response.message){
+                   this.setState({error:response.message}) 
+                } else {
+                    loginUser(response.accessToken)
+                    this.props.history.push('/feed/')
+                }
+                
             })
-            .catch(error => this.setState({ error }))
     }
 
 

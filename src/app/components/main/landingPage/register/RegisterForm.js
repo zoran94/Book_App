@@ -33,6 +33,7 @@ const RegisterForm = (props) => {
             />
 
             {props.error && <p>{props.error}</p>}
+            {props.success && <p>{props.success}</p>}
             <button className="btn register right" onClick={props.onCreateRegister}>Register</button>
         </form>
 

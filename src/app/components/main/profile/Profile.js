@@ -4,6 +4,8 @@ import { Modal, Button } from "react-materialize";
 import M from "materialize-css";
 import ModalContent from "./ModalContent";
 import { getAuthUserId } from '../../../../services/authService';
+import UserProfile from './UserProfile';
+import Loader from '././../../Loader';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -38,7 +40,7 @@ class Profile extends React.Component {
   componentDidUpdate(prevProps) {
     const id = this.props.match.params.id;
     const prevId = prevProps.match.params.id
-
+    console.log(this.state.user);
     if (id !== prevId) {
       this.onLoadUser(id);
     }
@@ -47,13 +49,14 @@ class Profile extends React.Component {
   componentDidMount() {
     this.onLoadUser()
   }
-
-
-
-
-  displayUser = () => {
+    
+  render() {
     const editButton =
       this.props.match.params.id == getAuthUserId() ? <Button onClick={this.modalToggle} className="edit-buton-position">Edit Profile</Button> : "";
+
+    if (!this.state.user) {
+      return <Loader/>
+    }
 
     return (
       <>
@@ -61,66 +64,14 @@ class Profile extends React.Component {
         <Modal open={this.state.modalVisible} options={{ dismissible: false }}>
           <ModalContent
             click={this.modalToggle}
-            firstName={this.state.user.firstname}
-            lastName={this.state.user.lastname}
-            imageUrl={this.state.user.avatarUrl}
-            bio={this.state.user.about.bio}
+            firstName={this.state.user.firstName}
+            lastName={this.state.user.lastName}
+            imageUrl={this.state.user.photo}
+            description={this.state.user.description}
             id={this.props.match.params.id}
             onLoadUser={this.onLoadUser} />
         </Modal>
-
-        <div className="singleUser ">
-          <div className="center" style={{ marginTop: " 150px" }}>
-            <img src={this.state.user.avatarUrl} alt="..." />
-            <h4>
-              {this.state.user.firstname} {this.state.user.lastname}
-            </h4>
-            <p>
-              <b>Bio: </b> {this.state.user.about.bio}
-            </p>
-            <p>
-              <b>Job: </b>
-              {this.state.user.about.job}
-            </p>
-            <div className="postComments">
-              <div className="chip">
-                <div className="lg-chip-icon">C</div>
-                {this.state.user.posts.length} Posts
-              </div>
-              <div className="chip">
-                <div className="lg-chip-icon">C</div>
-                {this.state.user.comments.length} Comments
-              </div>
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  };
-
-  render() {
-    if (!this.state.user) {
-      return (
-        <div className="sk-fading-circle">
-          <div className="sk-circle1 sk-circle"></div>
-          <div className="sk-circle2 sk-circle"></div>
-          <div className="sk-circle3 sk-circle"></div>
-          <div className="sk-circle4 sk-circle"></div>
-          <div className="sk-circle5 sk-circle"></div>
-          <div className="sk-circle6 sk-circle"></div>
-          <div className="sk-circle7 sk-circle"></div>
-          <div className="sk-circle8 sk-circle"></div>
-          <div className="sk-circle9 sk-circle"></div>
-          <div className="sk-circle10 sk-circle"></div>
-          <div className="sk-circle11 sk-circle"></div>
-          <div className="sk-circle12 sk-circle"></div>
-        </div>
-      )
-    }
-
-    return (
-      <>
-        <div className="container">{this.displayUser()}</div>
+        <UserProfile user={this.state.user}/>
       </>
     );
   }

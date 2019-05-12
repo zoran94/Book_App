@@ -1,8 +1,6 @@
 import React from 'react';
 import { Dropdown, Divider, Button } from "react-materialize";
-import Video from '../../../../entities/Video';
-import Text from '../../../../entities/Text';
-import Image from '../../../../entities/Image';
+
 
 const FilterButton = (props) => {
     return (
@@ -11,11 +9,11 @@ const FilterButton = (props) => {
                 trigger={<Button >Filter posts</Button>}>
                 <a onClick={() => props.filterPosts("")}>All posts</a>
                 <Divider />
-                <a onClick={() => props.filterPosts(Text.TYPE)}>Text posts</a>
+                <a onClick={() => props.filterPosts("text")}>Text posts</a>
                 <Divider />
-                <a onClick={() => props.filterPosts(Image.TYPE)}>Image posts</a>
+                <a onClick={() => props.filterPosts("image")}>Image posts</a>
                 <Divider />
-                <a onClick={() => props.filterPosts(Video.TYPE)}>Video posts</a>
+                <a onClick={() => props.filterPosts("video")}>Video posts</a>
             </Dropdown>
         </span>
     )

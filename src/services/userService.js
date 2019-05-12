@@ -1,6 +1,5 @@
 import BASE_URL from './../shared/baseUrl';
 import Person from '../entities/Person';
-import User from "./../entities/User";
 import {getUserToken} from './authService';
 const USERS_URL = '/users/?_embed=posts';
 
@@ -13,12 +12,7 @@ const fetchUsers = () => {
                 'Authorization': getUserToken()
             }
         }).then(response => response.json())
-        .then(response => response.map((user) => {
-            const { about, name, posts, avatarUrl, id } = user;
-            const lastPost = posts[posts.length - 1] ? posts[posts.length - 1].createdAt : "No posts to display";
-            return new Person(name.first, name.last, avatarUrl, (about || "").bio, lastPost, id)
-        })
-        )
+        .then(response => response.map((user) => new Person(user)))
 }
 
 
@@ -39,14 +33,7 @@ const fetchUser = (id) => {
                 throw user.message;
             }
 
-            return new User(
-                user.id,
-                user.name.first,
-                user.name.last,
-                user.avatarUrl,
-                user.about,
-                user.posts, 
-                user.comments)
+            return new Person(user)
         })
 }
 

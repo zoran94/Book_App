@@ -12,13 +12,6 @@ const fetchLogin = (body) => {
         body: JSON.stringify(body)
     })
         .then(response => response.json())
-        .then(({ accessToken, error, message }) => {
-            if (error) {
-                throw new Error(message);
-            }
-
-            loginUser(accessToken);
-        })
 
 }
 
@@ -56,5 +49,6 @@ export {
     fetchLogin,
     isAuth,
     getAuthUserId,
-    getUserToken
+    getUserToken,
+    loginUser
 } 
