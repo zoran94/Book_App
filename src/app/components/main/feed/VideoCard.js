@@ -31,7 +31,7 @@ class VideoCard extends React.Component {
                                 <iframe width="100%" height="300" src={content} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                             </div>
                             <div className="post-info">
-                                <span className="valign-wrapper"><img src={`${avatarUrl}`} className="circle profile-pic-post"/><i className="fas fa-video valign-wrapper"></i> Video post</span>
+                                <span className="valign-wrapper"><Link to={`/user/${userId}`}><img src={`${avatarUrl}`} className="circle profile-pic-post"/></Link><i className="fas fa-video valign-wrapper"></i> Video post</span>
                                 {
                                     getAuthUserId() == userId ?
                                     <i className="fas fa-trash-alt" onClick={() => this.props.onDeletePosts(id)}></i>

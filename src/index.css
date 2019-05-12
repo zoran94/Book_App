@@ -27,10 +27,6 @@ code {
   background-color: lightgray;
 }
 
-.right-border {
-  border-right: 1px solid darkgrey;
-  padding-right: 30px;
-}
 .post-info {
   display: flex;
   justify-content: space-between;
@@ -108,11 +104,6 @@ a {
   font-size: 20em;
 }
 
-/* .modal{
-  padding: 50px;
-} */
-
-
 .video {
   font-size: 50px;
   color: red;
@@ -157,7 +148,7 @@ a {
 }
 
 .edit-buton-position{
-  position: fixed;
+  position: absolute;
   right: 20%;
   top: 10%;
 }
@@ -172,21 +163,6 @@ a {
   margin-left: 35%;
 }
 
-/* .register {
-  margin-left: 140px;
-}
-
-.registerinfo {
-  float: left;
-    margin-top: 50px;
-    width: 50%;
-} */
-/* .form {
-  width: 50%;
-  float: right;
-  margin-top: 100px;
-  border: 1px solid grey;
-} */
 .register-toggle {
   cursor: pointer;
 }
@@ -350,4 +326,7 @@ a {
   padding-top: 0px;
   border-radius: 50%;
   margin-right: 10px;
+}
+.logout{
+  cursor: pointer;
 }

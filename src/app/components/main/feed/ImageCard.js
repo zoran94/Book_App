@@ -33,7 +33,7 @@ class ImageCard extends React.Component{
                                 <img alt="post-descr" src={content} className="postImg" />
                             </div>
                             <div className="post-info">
-                                <span className="valign-wrapper"><img src={`${avatarUrl}`} className="circle profile-pic-post"/><i className="fas fa-image valign-wrapper"></i> Image post</span>
+                                <span className="valign-wrapper"><Link to={`/user/${userId}`}><img src={`${avatarUrl}`} className="circle profile-pic-post"/></Link><i className="fas fa-image valign-wrapper"></i> Image post</span>
                                 {
                                     getAuthUserId() == userId ?
                                     <i className="fas fa-trash-alt" onClick={() => this.props.onDeletePosts(id)}></i>
