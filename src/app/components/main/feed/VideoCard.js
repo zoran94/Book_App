@@ -21,14 +21,14 @@ class VideoCard extends React.Component {
         this.onLoadComments();
     }
     render() {
-        const { videoUrl, id, userId, avatarUrl } = this.props.post;
+        const { content, id, userId, avatarUrl } = this.props.post;
         return (
             <>
                 <div className="row">
                     <div className="col s8 offset-s2 ">
                         <div className="card">
                             <div className="card-style white-text center">
-                                <iframe width="100%" height="300" src={videoUrl} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                <iframe width="100%" height="300" src={content} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                             </div>
                             <div className="post-info">
                                 <span className="valign-wrapper"><img src={`${avatarUrl}`} className="circle profile-pic-post"/><i className="fas fa-video valign-wrapper"></i> Video post</span>

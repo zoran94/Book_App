@@ -7,7 +7,7 @@ const SingleImagePost = (props) => {
                 <div className="col s8 offset-s2">
                     <div className="card post-bg-color">
                         <div className="card-style">
-                            <img alt="post-desc" src={props.post.imageUrl} className="postImg" />
+                            <img alt="post-desc" src={props.post.content} className="postImg" />
                         </div>
                     </div>
                 </div>

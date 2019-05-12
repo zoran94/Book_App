@@ -23,14 +23,14 @@ class ImageCard extends React.Component{
     }
     
     render () {
-        const { imageUrl, id, userId, avatarUrl } = this.props.post;
+        const { content, id, userId, avatarUrl } = this.props.post;
         return (
             <>
                 <div className="row">
                     <div className="col s8 offset-s2">
                         <div className="card">
                             <div className="card-style white-text">
-                                <img alt="post-descr" src={imageUrl} className="postImg" />
+                                <img alt="post-descr" src={content} className="postImg" />
                             </div>
                             <div className="post-info">
                                 <span className="valign-wrapper"><img src={`${avatarUrl}`} className="circle profile-pic-post"/><i className="fas fa-image valign-wrapper"></i> Image post</span>

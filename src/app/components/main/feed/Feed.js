@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchPost } from '../../../../services/postService';
+import { fetchPosts } from '../../../../services/postService';
 import FeedList from '../feed/FeedList';
 import { deletePost } from "./../../../../services/postService";
 import NewPost from "./NewPost";
@@ -24,9 +24,10 @@ class Feed extends React.Component {
 
 
     onLoadPosts = () => {
-        fetchPost()
+        fetchPosts()
             .then((fetchedPosts) => {
                 this.setState({ posts: fetchedPosts });
+                console.log("*************************");
             })
     }
 

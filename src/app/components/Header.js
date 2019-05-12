@@ -15,20 +15,18 @@ class Header extends React.Component {
     onLoadUser = () => {
         fetchUser(getAuthUserId())
         .then((response) => {
+            console.log(response);
             this.setState({
-                profilePicture:response.avatarUrl
+                profilePicture:response.photo
             })
         })
     }
     
-  
-
-     clickHandler = () => {
+    clickHandler = () => {
         localStorage.removeItem("key");
         this.props.history.push('/');
     }
     
-
     componentDidMount(){
         this.onLoadUser()
     }
