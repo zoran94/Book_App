@@ -1,3 +1,8 @@
+
+<div align="center">
+    <img src="./Desktop/book.jpg" width="400px"</img> 
+</div>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Enjoy this app :)
