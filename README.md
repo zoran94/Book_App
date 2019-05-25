@@ -1,5 +1,5 @@
 
-![book](C:\Users\Zoran\Desktop\book.jpg)
+![book](../Desktop/book.jpg)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
