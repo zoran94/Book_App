@@ -6,7 +6,7 @@ const Footer = () => {
         backgroundColor: "#009587"
     }
     return (
-        <footer className="page-footer" style={color}>
+        <footer className="page-footer cursive" style={color}>
             <div className="container">
 
                 <div className="footer-copyright center" style={color}>

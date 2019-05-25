@@ -7,7 +7,7 @@ import InputField from "../../profile/InputField";
 const RegisterForm = (props) => {
 
     return (
-        <form className="col s4 offset-s1 formBorder">
+        <form className="col s4 offset-s1 formBorder formReg">
             <InputField
                 type="text"
                 inputName="Name"
@@ -34,7 +34,7 @@ const RegisterForm = (props) => {
 
             {props.error && <p>{props.error}</p>}
             {props.success && <p>{props.success}</p>}
-            <button className="btn register right" onClick={props.onCreateRegister}>Register</button>
+            <button className="btn register right regBtn" onClick={props.onCreateRegister}>Register</button>
         </form>
 
     )

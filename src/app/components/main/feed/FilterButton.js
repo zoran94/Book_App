@@ -4,9 +4,9 @@ import { Dropdown, Divider, Button } from "react-materialize";
 
 const FilterButton = (props) => {
     return (
-        <span className="margin-top">
+        <span className="margin-top cursive">
             <Dropdown
-                trigger={<Button >Filter posts</Button>}>
+                trigger={<Button ><span className="cursive">Filter posts</span></Button>}>
                 <a onClick={() => props.filterPosts("")}>All posts</a>
                 <Divider />
                 <a onClick={() => props.filterPosts("text")}>Text posts</a>

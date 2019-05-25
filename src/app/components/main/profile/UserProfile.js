@@ -4,7 +4,7 @@ import React from 'react';
 const UserProfile = (props) => {
     const {photo, comments, firstName, lastName, description, posts, job } = props.user;
     return (
-        <div className="singleUser ">
+        <div className="singleUser cursive">
             <div className="center" style={{ marginTop: " 150px" }}>
                 <img src={photo} alt="..." />
                 <h4>

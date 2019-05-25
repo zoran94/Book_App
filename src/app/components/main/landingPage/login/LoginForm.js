@@ -8,7 +8,7 @@ import LoginInfo from "./LoginInfo";
 const LoginForm = (props) => {
 
     return (
-            <form className="col s4 offset-s1 formBorder">
+            <form className="col s4 offset-s1 formBorder formReg">
                 <InputField
                     type="text"
                     inputName="Email"
@@ -27,7 +27,7 @@ const LoginForm = (props) => {
 
                 {props.error && <p>{props.error}</p>}
 
-                <button className="btn register right" onClick={props.onLogin}>Login</button>
+                <button className="btn register right regBtn " onClick={props.onLogin}>Login</button>
 
             </form>
     )

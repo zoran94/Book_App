@@ -36,10 +36,10 @@ class People extends React.Component {
             return <Loader/>
         }
         const people = this.state.people.filter((element) => {
-            return `${element.firstName}${element.lastName}`.toLowerCase().includes(this.state.searchValue.toLowerCase());
+            return `${element.firstName} ${element.lastName}`.toLowerCase().includes(this.state.searchValue.toLowerCase());
         })
         return (
-            <div className="padding-top">
+            <div className="padding-top cursive">
                 <Search searchUser={this.searchUser} />
                 <PeopleList people={people} />
             </div>

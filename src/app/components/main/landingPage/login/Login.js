@@ -47,7 +47,7 @@ class Login extends Component {
     render() {
 
         return (
-            <div className="row container margin-top">
+            <div className="row container margin-top ">
                 <LoginInfo />
                 {this.props.children}
                 <LoginForm

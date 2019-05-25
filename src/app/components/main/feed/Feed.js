@@ -55,7 +55,7 @@ class Feed extends React.Component {
             <>
 
                 <FilterButton filterPosts={this.filterPosts} isModalVisible={this.state.isModalVisible} />
-                <div className="padding-top" >
+                <div className="padding-top cursive" >
                     <FeedList posts={filteredPosts} className="post-container" onDeletePosts={this.onDeletePosts} />
                     <NewPost onReload={this.onLoadPosts} />
                 </div>

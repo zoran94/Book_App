@@ -89,7 +89,7 @@ class PostPageDetails extends React.Component {
     }
 
     return (
-      <div className="padding-top">
+      <div className="padding-top cursive">
         <SinglePostItem
           onCreateComment={this.onCreateComment}
           onChangeCommentValue={this.onChangeCommentValue}

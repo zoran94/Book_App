@@ -31,7 +31,7 @@ const SinglePostItem = props => {
             <label htmlFor="textarea2" />
             <button
               onClick={props.onCreateComment}
-              className="right btn"
+              className="right btn cursive"
               disabled={props.disabled}
             >
               Post Comment

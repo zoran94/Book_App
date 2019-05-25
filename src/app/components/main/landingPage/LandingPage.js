@@ -20,15 +20,15 @@ class LandingPage extends React.Component {
     buttons = () => {
         if (this.state.registerUi) {
             return (
-                <div className="col s4 offset-s1">
-                    <button onClick={this.onToggleRegister} className="btn left col s6 disabled">Register</button>
-                    <button onClick={this.onToggleRegister} className="btn right col s6">Login</button>
+                <div className="col s4 offset-s1 ">
+                    <button onClick={this.onToggleRegister} className="btn left col s6 disabled cursive">Register</button>
+                    <button onClick={this.onToggleRegister} className="btn right col s6 cursive">Login</button>
                 </div>)
         }
         return (
             <div className="col s4 offset-s1">
-                <button onClick={this.onToggleRegister} className="btn left col s6">Register</button>
-                <button onClick={this.onToggleRegister} className="btn right col s6 disabled">Login</button>
+                <button onClick={this.onToggleRegister} className="btn left col s6 cursive">Register</button>
+                <button onClick={this.onToggleRegister} className="btn right col s6 disabled cursive">Login</button>
             </div>)
     }
 

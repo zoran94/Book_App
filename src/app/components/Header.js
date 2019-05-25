@@ -40,8 +40,8 @@ class Header extends React.Component {
             <>
 
                 <nav style={color}>
-                    <div className="nav-wrapper">
-                        <Link to="/feed"><span className="brand-logo left">Bitbook</span></Link>
+                    <div className="nav-wrapper cursive">
+                        <Link to="/feed"><span className="brand-logo left bookH">Bitbook</span></Link>
                         <ul id="nav-mobile" className="right ">
                             <li><Link to={`/user/${getAuthUserId()}`} >{this.state.profilePicture && <img className="circle profilePic" src={`${this.state.profilePicture}`} /> || ""}</Link></li>
                             <li><Link to="/feed/"><span>Feed</span></Link></li>

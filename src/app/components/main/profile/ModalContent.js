@@ -95,8 +95,8 @@ class ModalContent extends React.Component {
     const { props } = this;
 
     return (
-      <form className="row" onSubmit={e => e.preventDefault()}>
-        <div className="row">
+      <form className="row cursive" onSubmit={e => e.preventDefault()}>
+        <div className="row cursive">
           <h4 className="col s5 offset-s2">Update profile</h4>
         </div>
 

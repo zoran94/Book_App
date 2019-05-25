@@ -8,7 +8,7 @@ const InputField = (props) => {
     const local = !!localStorage.getItem("key");
 
     return (
-        <div className="row">
+        <div className="row cursive">
             <div className={local ? modalClasses : landingPageClasses}>
                 {props.inputName} <input
                     id={props.name}
