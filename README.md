@@ -1,7 +1,8 @@
 
 <div align="center">
-    <img src="/images/book.jpg" width="400px"</img> 
+    <img src="https://raw.githubusercontent.com/zoran94/Bit_book/master/image/book.jpg" width="100%" height="500px"</img> 
 </div>
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
