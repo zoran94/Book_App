@@ -1,6 +1,6 @@
 
 <div align="center">
-    <img src="./images/book.jpg" width="400px"</img> 
+    <img src="/images/book.jpg" width="400px"</img> 
 </div>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
