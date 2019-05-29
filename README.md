@@ -1,4 +1,7 @@
 
+This project is about creating virtual book, in which you can make your own registration and sing in. As a user you can find all video, text and image posts and create your own post. Thereby, there is a user list with their specific posts and comments, you can post your comment on any post and update your profile. 
+Enjoy this app :)
+
 <div align="center">
     <img src="https://raw.githubusercontent.com/zoran94/Bit_book/master/image/book.jpg" width="100%" height="500px"</img> 
 </div>
@@ -6,7 +9,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Enjoy this app :)
+
 ## Available Scripts
 
 In the project directory, you can run:
