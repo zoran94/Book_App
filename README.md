@@ -1,4 +1,6 @@
 
+<a href="bit-book-app.netlify.com">Bit-book</a>
+
 This project is about creating virtual book, in which you can make your own registration and sing in. As a user you can find all video, text and image posts and create your own post. Thereby, there is a user list with their specific posts and comments, you can filter for a specifict type of posts, post your comment on any post and update your profile. 
 Enjoy this app :)
 
