@@ -1,5 +1,5 @@
 
-<a href="https://bit-book-app.netlify.com/?_ga=2.166940670.1121407523.1559589419-1217787357.1559589419#/" target="_blank">Bit-book</a>
+<a href="https://bit-book-app.netlify.com/?_ga=2.166940670.1121407523.1559589419-1217787357.1559589419#/" target="_blank">Book App</a>
 
 This project is about creating virtual book, in which you can make your own registration and sing in. As a user you can find all video, text and image posts and create your own post. Thereby, there is a user list with their specific posts and comments, you can filter for a specifict type of posts, post your comment on any post and update your profile. 
 Enjoy this app :)
