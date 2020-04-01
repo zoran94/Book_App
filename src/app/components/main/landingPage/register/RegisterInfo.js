@@ -6,7 +6,7 @@ const RegisterInfo = (props) => {
     return (
         <>
             <div className="registerinfo col s5">
-                        <h2 className="regHead">BitBook Register</h2>
+                        <h2 className="regHead">Register</h2>
                 <br />
                 <div>
                     <p className="regText">Lorem Ipsum is simply dummy text of the printing and typesetting industry.

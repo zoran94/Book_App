@@ -6,7 +6,7 @@ const LoginInfo = (props) => {
     return (
         <>
             <div className="registerinfo col s5">
-                <h2 className="regHead">BitBook Login</h2>
+                <h2 className="regHead">Login</h2>
           
                 <br />
                 <div>
